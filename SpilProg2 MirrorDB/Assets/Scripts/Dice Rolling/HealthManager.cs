@@ -125,8 +125,8 @@ private bool player2wins;
         }
 
 // modificerer teksten, ved at konvertere wincounters / losscounters til string.
-            Player1Counter.SetText("player 1 Wins: " + winCounter1.ToString() + "." + ("Losses: ") + LossCounter1.ToString());
-            Player2Counter.SetText("player 2 Wins: " + winCounter2.ToString() + "." + ("Losses: ") + LossCounter2.ToString());
+            Player1Counter.SetText("Player 1:\nWins:" + winCounter1.ToString() + ".\n" + ("Losses: ") + LossCounter1.ToString());
+            Player2Counter.SetText("Player 2:\nWins:" + winCounter2.ToString() + ".\n" + ("Losses: ") + LossCounter2.ToString());
             // sætter begge bools til false, så at der ikke i næste runde bliver ændret ved begge counters, i tilfælde af at andet resultat ift. vinder / taber.
             player2wins = false;
             player1wins = false;
