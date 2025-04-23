@@ -5,10 +5,11 @@ public class DiceReroll : MonoBehaviour
 
     // REF, DO SOMETHING!!!!
     public DiceRoll DR;
+    public RerollText rt;
   
 
   // reroll int for each player, for how many rerolls they have
-    [SerializeField]private int Rerolls1;
+    public int Rerolls1;
     [SerializeField] private int Rerolls2;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
   
@@ -16,12 +17,14 @@ public class DiceReroll : MonoBehaviour
     {
         if(Rerolls1 > 0)
         {
-     Rerolls1 --;
-     DR.diceRoll();
+            Rerolls1 --;
+            rt.RerollTextUpdate();
+            DR.diceRoll();
         }
-       else
+
+        else
         {
-        Debug.Log("No rerolls left for Player 1, womp womp");
+            Debug.Log("No rerolls left for Player 1, womp womp");
         }
     }
     
@@ -29,8 +32,8 @@ public class DiceReroll : MonoBehaviour
     {
         if(Rerolls2 > 0)
         {
-        Rerolls2--;
-        DR.diceRoll2();
+            Rerolls2--;
+            DR.diceRoll2();
         }
 
         else
