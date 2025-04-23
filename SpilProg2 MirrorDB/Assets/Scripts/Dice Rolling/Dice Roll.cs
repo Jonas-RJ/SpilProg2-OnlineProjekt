@@ -11,11 +11,16 @@ public class DiceRoll : MonoBehaviour
     public int diceRollNumber2;
 
     public HealthManager HealthManager;
+
+    // referencer til reroll knapperne
+    public GameObject reRollButton1;
+    public GameObject reRollButton2;
    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        reRollButton1.SetActive(false);
+        reRollButton2.SetActive(false);
     }
 
     // Update is called once per frame
@@ -34,6 +39,12 @@ public class DiceRoll : MonoBehaviour
         HealthManager.diceRoll1 = diceRollNumber;
     }
 
+    // gør at player 1 reroll button kan ses når man trykker på den første roll knap
+    public void EnableReRollButton()
+    {
+        reRollButton1.SetActive(true);
+    }
+
      public void diceRoll2()
     {
     // siger at hver persons roll værdi er en værdi mellem 1 og 6. Printer derefter hvad man ruller. 
@@ -42,6 +53,12 @@ public class DiceRoll : MonoBehaviour
         print("player 2 rolled " + diceRollNumber2);
         HealthManager.diceRoll2 = diceRollNumber2;
 
+    }
+
+    // gør at player 2 reroll button kan ses når man trykker på den anden roll knap
+    public void EnableReRollButton2()
+    {
+        reRollButton2.SetActive(true);
     }
 
 }
