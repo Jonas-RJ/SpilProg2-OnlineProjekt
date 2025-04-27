@@ -9,7 +9,7 @@ public class TestingDB : MonoBehaviour
         dbManager = FindObjectOfType<HighscoreDBManager>();
     }
 
-    // This function can be connected to the Button
+    //This function can be connected to the Button
     public void AddTestHighscore()
     {
         if (dbManager != null)
