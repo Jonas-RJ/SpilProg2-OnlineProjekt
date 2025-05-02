@@ -1,13 +1,16 @@
-// These are the necessary namespaces we need
-
-using System.Collections.Generic; // To use List<>
-using UnityEngine; // Basic Unity functionality
-using Mono.Data.Sqlite; // The SQLite library for Unity
-using System.Data; // General database types (like IDbConnection)
-using System.IO; // To work with files (checking if the DB file exists)
+using System.Collections.Generic;
+using UnityEngine;
+using Mono.Data.Sqlite;
+using System.Data;
+using System.IO;
 
 public class HighscoreDBManager : MonoBehaviour
 {
+    private void Awake()
+    {
+        DatabaseCreator();
+    }
+
     //Method to ensure file paths/folders are set, before creating the DB 
     private string GetDBPath()
     {
@@ -25,11 +28,6 @@ public class HighscoreDBManager : MonoBehaviour
         return $"URI=file:{fullPath}";
     }
 
-    private void Awake()
-    {
-        DatabaseCreator();
-    }
-
     //Initializes the highscore DB (creates the DB if it doesn't exist)
     private void DatabaseCreator()
     {
@@ -37,16 +35,17 @@ public class HighscoreDBManager : MonoBehaviour
         using (var connection = new SqliteConnection(GetDBPath()))
         {
             connection.Open();
-            
+
             //Create an SQL command, to send SQL to the database
             using (var command = connection.CreateCommand())
             {
-                //This SQL command creates a new table for highscores if it doesn't exist yet
+                //This SQL command creates a new table for highscores if it doesn't exist yet //TODO perhaps rename Wins to Victories?
                 command.CommandText = @"
                     CREATE TABLE IF NOT EXISTS Highscores (
                         Id INTEGER PRIMARY KEY AUTOINCREMENT,
-                        PlayerName TEXT NOT NULL,
-                        Score INTEGER NOT NULL
+                        PlayerName TEXT NOT NULL UNIQUE,
+                        Score INTEGER NOT NULL,
+                        Wins INTEGER NOT NULL
                     );";
 
                 //Executes the above SQL command
@@ -55,7 +54,47 @@ public class HighscoreDBManager : MonoBehaviour
         }
     }
 
-    /*TODO: INVOKE FOLLOWING METHOD "HighscoreAdd" WHEN WE HAVE DECIDED HOW AND WHEN A PLAYER CAN ADD THEIR NAME/SCORE TO THE HIGHSCORE LIST*/
+    public void AddOrUpdateWinner(string playerName)
+    {
+        using (var connection = new SqliteConnection(GetDBPath()))
+        {
+            connection.Open();
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "SELECT Score, Wins FROM Highscores WHERE PlayerName = @name;";
+                command.Parameters.Add(new SqliteParameter("@name", playerName));
+
+                using (IDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        int currentScore = reader.GetInt32(0);
+                        int currentWins = reader.GetInt32(1);
+                        reader.Close();
+
+                        command.CommandText =
+                            "Update Highscores SET Score = @score, Wins = @wins WHERE PlayerName = @name;";
+                        command.Parameters.Add(new SqliteParameter("@score", currentScore + 100));
+                        command.Parameters.Add(new SqliteParameter("@Wins", currentWins + 1));
+                        command.ExecuteNonQuery();
+                    }
+                    else
+                    {
+                        reader.Close();
+                        command.CommandText =
+                            "INSERT INTO Highscores (PlayerName, Score, Wins) VALUES (@name, 100, 1);";
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+        }
+    }
+
+    
+    //-----------------------------//
+    /*TODO OLD VERSION OF HIGHSCORE ADDING - PERHAPS DELETE THIS*/
+    /*TODO INVOKE FOLLOWING METHOD "HighscoreAdd" WHEN WE HAVE DECIDED HOW AND WHEN A PLAYER CAN ADD THEIR NAME/SCORE TO THE HIGHSCORE LIST#1#*/
+    /*
     //Adds a new highscore to the database
     public void HighscoreAdd(string playerName, int score)
     {
@@ -79,13 +118,15 @@ public class HighscoreDBManager : MonoBehaviour
         }
         //Debug.Log($"Saved highscore: {playerName} - {score}");
     }
+    //-----------------------------//
+
 
     /*TODO: INVOKE FOLLOWING METHOD "GetHighscores" WHEN WE HAVE DECIDED HOW AND WHERE TO SHOW THE HIGHSCORE LIST*/
     //Retrieves a list of top highscores from the database, sorted by "highest score first"
-    public List<(string name, int score)> GetHighscores(int limit = 10)
+    public List<(string name, int score, int wins)> GetHighscores(int limit = 10)
     {
         //Create an empty list to store results
-        List<(string, int)> highscores = new();
+        List<(string, int, int)> highscores = new();
 
         //Open a connection to the database
         using (var connection = new SqliteConnection(GetDBPath()))
@@ -95,26 +136,29 @@ public class HighscoreDBManager : MonoBehaviour
             //Creates SQL command to select top highscores
             using (var command = connection.CreateCommand())
             {
-                command.CommandText = $"SELECT PlayerName, Score FROM Highscores ORDER BY Score DESC LIMIT {limit};";
-
+                command.CommandText = "SELECT PlayerName, Score, Wins FROM Highscores ORDER BY Score DESC LIMIT @limit;";
+                command.Parameters.Add(new SqliteParameter("@limit", limit));
+                
                 //Execute the command and get a "reader" to go through the results
                 using (IDataReader reader = command.ExecuteReader())
                 {
                     //Keep reading the rows
                     while (reader.Read())
                     {
-                        //First column = name
+                        //First column = winning player name
                         string name = reader.GetString(0);
-                        //Second column = score
+                        //Second column = total score
                         int score = reader.GetInt32(1);
-                        
+                        //third column = number of wins
+                        int wins = reader.GetInt32(2);
+
                         //Adds the read info to our highscore leaders list, to be shown
-                        highscores.Add((name, score));
+                        highscores.Add((name, score, wins));
                     }
                 }
             }
         }
         //Return the highscore list to method invocator
-        return highscores; 
+        return highscores;
     }
 }
