@@ -21,6 +21,8 @@ public class TestingDB : MonoBehaviour
             int randomScore = Random.Range(0, 10000);
 
             dbManager.AddOrUpdateWinner(randomPlayerName);
+            
+            
 
             Debug.Log($"Added highscore: {randomPlayerName} - {randomScore}");
         }
