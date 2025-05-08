@@ -54,6 +54,7 @@ public class HighscoreDBManager : MonoBehaviour
         }
     }
 
+    //Allows the winner to add his name to the highscore list
     public void AddOrUpdateWinner(string playerName)
     {
         using (var connection = new SqliteConnection(GetDBPath()))
@@ -61,6 +62,7 @@ public class HighscoreDBManager : MonoBehaviour
             connection.Open();
             using (var command = connection.CreateCommand())
             {
+                //Checks if the winning player already exists in the DB - if yes the entry gets updated
                 command.CommandText = "SELECT Score, Wins FROM Highscores WHERE PlayerName = @name;";
                 command.Parameters.Add(new SqliteParameter("@name", playerName));
 
@@ -78,6 +80,7 @@ public class HighscoreDBManager : MonoBehaviour
                         command.Parameters.Add(new SqliteParameter("@Wins", currentWins + 1));
                         command.ExecuteNonQuery();
                     }
+                    //If winning player isn't in the DB - add a new entry with name, no. of wins and a score 
                     else
                     {
                         reader.Close();
@@ -90,9 +93,8 @@ public class HighscoreDBManager : MonoBehaviour
         }
     }
 
-    
-    //-----------------------------//
     /*TODO OLD VERSION OF HIGHSCORE ADDING - PERHAPS DELETE THIS*/
+    //-----------------------------//
     /*TODO INVOKE FOLLOWING METHOD "HighscoreAdd" WHEN WE HAVE DECIDED HOW AND WHEN A PLAYER CAN ADD THEIR NAME/SCORE TO THE HIGHSCORE LIST#1#*/
     /*
     //Adds a new highscore to the database
@@ -118,14 +120,12 @@ public class HighscoreDBManager : MonoBehaviour
         }
         //Debug.Log($"Saved highscore: {playerName} - {score}");
     }
-    //-----------------------------//
+    //-----------------------------// */
 
-
-    /*TODO: INVOKE FOLLOWING METHOD "GetHighscores" WHEN WE HAVE DECIDED HOW AND WHERE TO SHOW THE HIGHSCORE LIST*/
-    //Retrieves a list of top highscores from the database, sorted by "highest score first"
-    public List<(string name, int score, int wins)> GetHighscores(int limit = 10)
+    //Retrieves a list of the top scores from the database, have it sorted by "highest score first"
+    public List<(string name, int score, int wins)> RetrieveHighscores(int limit = 10)
     {
-        //Create an empty list to store results
+        //Create an empty list to store retrieved results
         List<(string, int, int)> highscores = new();
 
         //Open a connection to the database
@@ -139,7 +139,7 @@ public class HighscoreDBManager : MonoBehaviour
                 command.CommandText = "SELECT PlayerName, Score, Wins FROM Highscores ORDER BY Score DESC LIMIT @limit;";
                 command.Parameters.Add(new SqliteParameter("@limit", limit));
                 
-                //Execute the command and get a "reader" to go through the results
+                //Execute the command and gets a "reader" to go through the results
                 using (IDataReader reader = command.ExecuteReader())
                 {
                     //Keep reading the rows
