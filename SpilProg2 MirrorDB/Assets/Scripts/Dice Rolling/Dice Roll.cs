@@ -14,13 +14,13 @@ public class DiceRoll : MonoBehaviour
 
     // referencer til reroll knapperne
     public GameObject reRollButton1;
-    public GameObject reRollButton2;
+    // public GameObject reRollButton2;
    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         reRollButton1.SetActive(false);
-        reRollButton2.SetActive(false);
+        // reRollButton2.SetActive(false);
     }
 
     // Update is called once per frame
@@ -58,7 +58,7 @@ public class DiceRoll : MonoBehaviour
     // gør at player 2 reroll button kan ses når man trykker på den anden roll knap
     public void EnableReRollButton2()
     {
-        reRollButton2.SetActive(true);
+        // reRollButton2.SetActive(true);
     }
 
 }

@@ -24,6 +24,12 @@ public class HealthManager : MonoBehaviour
     [SerializeField] public int player1Health;
     [SerializeField] public int player2Health;
 
+    public bool player1Ready;
+    public bool player2Ready;
+
+    public Button player1ReadyButton;
+    public Button player2ReadyButton;
+
 
     // værdi som indeholder hvad man har rullet fra det andet script. 
     public int diceRoll1;  
@@ -104,6 +110,25 @@ public class HealthManager : MonoBehaviour
         hc.Change();
     }
 
+    public void RollDice()
+    {
+        if (player1Ready && player2Ready)
+        {
+            healthUpdatePlayer();
+        }
+    }
+
+    public void MakePlayer1Ready()
+    {
+        player1Ready = true;
+    }
+    
+    public void MakePlayer2Ready()
+    {
+        player2Ready = true;
+    }
+    
+
 
     public void RestartGame()
     {
@@ -139,6 +164,7 @@ public class HealthManager : MonoBehaviour
         player2Health = 10;
         diceRoll1 = 0;
         diceRoll2 = 0;
-
+        player1Ready = false;
+        player2Ready = false;
     }
 }
