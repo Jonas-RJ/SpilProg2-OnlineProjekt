@@ -1,4 +1,3 @@
-using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,11 +19,19 @@ public class HealthChange : MonoBehaviour
         //Pool of lost health total
         pool = pool + change;
 
-        //For loop where the individual healthsprite equal to the pool is set to the red/damaged sprite
+        //For loop where the individual health sprite equal to the pool is set to the red/damaged sprite
         for (int i = 0; i < pool; i++)
         {
             point = health[i];
             point.sprite = red;
+        }
+    }
+    
+    public void HealthUIReset()
+    {
+        foreach (var p in health)
+        {
+            p.sprite = green;
         }
     }
 }

@@ -11,4 +11,9 @@ public class RerollText : MonoBehaviour
     {
         reroll.SetText("Rerolls left: " + dr.Rerolls1);
     }
+    
+    public void RerollUIReset()
+    {
+        reroll.SetText("Rerolls left: 2");
+    }
 }
