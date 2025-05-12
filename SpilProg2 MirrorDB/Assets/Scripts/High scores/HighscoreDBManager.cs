@@ -6,6 +6,22 @@ using System.IO;
 
 public class HighscoreDBManager : MonoBehaviour
 {
+    
+    public class HighscoreEntry
+    {
+        public string name;
+        public int score;
+        public int wins;
+
+        public HighscoreEntry(string name, int score, int wins)
+        {
+            this.name = name;
+            this.score = score;
+            this.wins = wins;
+        }
+    }
+    
+    
     private void Awake()
     {
         DatabaseCreator();
@@ -92,38 +108,36 @@ public class HighscoreDBManager : MonoBehaviour
             }
         }
     }
-
-    /*TODO OLD VERSION OF HIGHSCORE ADDING - PERHAPS DELETE THIS*/
-    //-----------------------------//
-    /*TODO INVOKE FOLLOWING METHOD "HighscoreAdd" WHEN WE HAVE DECIDED HOW AND WHEN A PLAYER CAN ADD THEIR NAME/SCORE TO THE HIGHSCORE LIST#1#*/
-    /*
-    //Adds a new highscore to the database
-    public void HighscoreAdd(string playerName, int score)
+    
+    public List<HighscoreEntry> RetrieveHighscores()
     {
-        //Open a connection to the database
+        List<HighscoreEntry> highscores = new List<HighscoreEntry>();
+
         using (var connection = new SqliteConnection(GetDBPath()))
         {
             connection.Open();
-
-            //Create an SQL command, to insert a new highscore
             using (var command = connection.CreateCommand())
             {
-                command.CommandText = "INSERT INTO Highscores (PlayerName, Score) VALUES (@name, @score);";
+                command.CommandText = "SELECT PlayerName, Score, Wins FROM Highscores ORDER BY Score DESC;";
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        string name = reader.GetString(0);
+                        int score = reader.GetInt32(1);
+                        int wins = reader.GetInt32(2);
 
-                //Add parameters to prevent SQL Injection
-                command.Parameters.Add(new SqliteParameter("@name", playerName));
-                command.Parameters.Add(new SqliteParameter("@score", score));
-
-                //Executes the insert command
-                command.ExecuteNonQuery();
+                        highscores.Add(new HighscoreEntry(name, score, wins));
+                    }
+                }
             }
         }
-        //Debug.Log($"Saved highscore: {playerName} - {score}");
+        return highscores;
     }
-    //-----------------------------// */
-
-    //Retrieves a list of the top scores from the database, have it sorted by "highest score first"
-    public List<(string name, int score, int wins)> RetrieveHighscores(int limit = 10)
+    
+    //------------------------------------------------------------------------------------------//
+    /*//Retrieves a list of the top scores from the database, have it sorted by "highest score first"
+    public List<(string name, int score, int wins)> RetrieveHighscores(int limit = 8)
     {
         //Create an empty list to store retrieved results
         List<(string, int, int)> highscores = new();
@@ -160,5 +174,5 @@ public class HighscoreDBManager : MonoBehaviour
         }
         //Return the highscore list to method invocator
         return highscores;
-    }
+    }*/
 }
