@@ -399,6 +399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 028e1bc53cbebf74fa331b6b1eefab53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DR: {fileID: 2030739153}
   RestartButton: {fileID: 1938509424}
   buttons: {fileID: 1975905621}
   Winners: {fileID: 336403312}
@@ -407,14 +408,13 @@ MonoBehaviour:
   player2Health: 10
   diceRoll1: 0
   diceRoll2: 0
+  diceDamage: 0
   winCounter1: 0
   winCounter2: 0
   LossCounter1: 0
   LossCounter2: 0
   Player1Counter: {fileID: 972452400}
   Player2Counter: {fileID: 394636660}
-  diceDamage: 0
-  DR: {fileID: 2030739153}
 --- !u!4 &136949520
 Transform:
   m_ObjectHideFlags: 0
@@ -1486,7 +1486,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -93.833984, w: -103.625}
+  m_margin: {x: 0, y: 0, z: -108.35254, w: -154.8789}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

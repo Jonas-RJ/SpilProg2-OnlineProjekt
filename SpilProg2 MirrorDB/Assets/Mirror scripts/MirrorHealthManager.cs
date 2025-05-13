@@ -1,7 +1,10 @@
 using UnityEngine;
 
-public class WinCounter : MonoBehaviour
+public class MirrorHealthManager : MonoBehaviour
 {
+
+    public MirrorDiceRoll MDR;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
