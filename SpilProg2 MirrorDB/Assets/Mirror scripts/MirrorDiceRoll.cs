@@ -30,8 +30,16 @@ public int diceRollP2;
 [Command]
 public void Dicerolling()
 {
-            diceRollP1 = UnityEngine.Random.Range(1, 6);
-            healthmanager.diceRoll1 = diceRollP1;
+            UpdateDice();
+}
+
+[ClientRpc]
+public void UpdateDice()
+{
+
+diceRollP1 = UnityEngine.Random.Range(1, 6);
+healthmanager.diceRoll1 = diceRollP1;
+
 }
 
 [Command]

@@ -3,9 +3,10 @@ using System;
 using Unity.VisualScripting;
 using TMPro;
 using UnityEngine.UI;
+using Mirror;
 
 
-public class HealthManager : MonoBehaviour
+public class HealthManager : NetworkBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [Header ("Object References")]
@@ -21,19 +22,22 @@ public class HealthManager : MonoBehaviour
     [Header ("Health and damage calculation")]
 
     // playerhealth variabler. Brugt til at udregne liv (duh)
+
+    [SyncVar (hook = nameof(updateHealth))]
     [SerializeField] public int player1Health;
+    [SyncVar (hook = nameof(updateHealth2))]
     [SerializeField] public int player2Health;
 
-    public bool player1Ready;
-    public bool player2Ready;
+[SyncVar (hook = nameof(MakePlayer1Ready))]   public bool player1Ready;
+[SyncVar (hook = nameof(MakePlayer2Ready))]   public bool player2Ready;
 
     public Button player1ReadyButton;
     public Button player2ReadyButton;
 
 
     // værdi som indeholder hvad man har rullet fra det andet script. 
-    public int diceRoll1;  
-    public int diceRoll2;
+    [SyncVar]public int diceRoll1;  
+    [SyncVar]public int diceRoll2;
     // samlet værdi for hvor meget man tager i skade. Udregnes ved at kigge på foreskellen mellem hvad man ruller, og bruger så foreskellen som damage. 
     public int diceDamage;
 
@@ -82,6 +86,8 @@ public class HealthManager : MonoBehaviour
         }
     }
 
+
+[ClientRpc]
     public void healthUpdatePlayer()
     {
         //checker hvem der ruller højst. 
@@ -110,6 +116,17 @@ public class HealthManager : MonoBehaviour
         hc.Change();
     }
 
+public void updateHealth(int OldValue, int NewValue){
+player1Health = NewValue;
+
+}
+
+public void updateHealth2(int OldValue, int NewValue){
+player2Health = NewValue;
+
+}
+
+
     public void RollDice()
     {
         if (player1Ready && player2Ready)
@@ -118,14 +135,16 @@ public class HealthManager : MonoBehaviour
         }
     }
 
-    public void MakePlayer1Ready()
-    {
-        player1Ready = true;
+    public void MakePlayer1Ready(bool OldValue, bool NewValue)
+    {   
+        NewValue = player1Ready;
+        NewValue = true;
     }
     
-    public void MakePlayer2Ready()
+    public void MakePlayer2Ready(bool OldValue, bool NewValue)
     {
-        player2Ready = true;
+        NewValue = player2Ready;
+        NewValue = true;
     }
     
 
@@ -159,6 +178,7 @@ public class HealthManager : MonoBehaviour
     }
 
 
+[ClientRpc]
     private void ResetValues(){
         player1Health = 10;
         player2Health = 10;
