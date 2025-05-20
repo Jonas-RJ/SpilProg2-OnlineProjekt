@@ -16,7 +16,12 @@ public class RedManAnimation : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            GetComponent<Animator>().Play("RedManAnim");
+            RunAnim();
         }
+    }
+
+    private void RunAnim()
+    {
+        GetComponent<Animator>().Play("RedManAnim");
     }
 }
