@@ -61,4 +61,9 @@ public void enableRerollButton2()
     reRollButton2.SetActive(true);
 }
 
+public void ExitGame()
+{
+    Application.Quit();
+}
+
 }
