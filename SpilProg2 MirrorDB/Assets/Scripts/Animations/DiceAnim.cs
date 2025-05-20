@@ -3,10 +3,11 @@ using UnityEngine.UI;
 
 public class DiceAnim : MonoBehaviour
 {
-    [SerializeField] Sprite three;
-    [SerializeField] Image dice;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public ChangeDie cd;
+    [SerializeField] Image image;
+
+
+    public void Awake()
     {
 
     }
@@ -16,13 +17,33 @@ public class DiceAnim : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.D))
         {
-            GetComponent<Animator>().Play("DiceAnim");            
+            DiceRoll();
         }
     }
 
-    public void ChangeSprite()
+    public void DiceRoll()
     {
-        dice.sprite = three;
+        SetOpacity(1.0f);
+        cd.SetOpacity(0f);
+        GetComponent<Animator>().Play("DiceAnim");
+    }
+
+    public void ChangeUI()
+    {
+        cd.ChangeImageSprite();
+    }
+
+    public void OpacityZero()
+    {
+        cd.SetOpacity(1.0f);
+        SetOpacity(0f);
+    }
+
+    public void SetOpacity(float opa)
+    {
+        Color color = image.color;
+        color.a = opa;
+        image.color = color;
     }
 
 }

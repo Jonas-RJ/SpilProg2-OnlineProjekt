@@ -16,7 +16,12 @@ public class BlueManAnimation : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            GetComponent<Animator>().Play("BlueManAnimation");
+            RunAnim();
         }
+    }
+
+    private void RunAnim()
+    {
+        GetComponent<Animator>().Play("BlueManAnim");
     }
 }

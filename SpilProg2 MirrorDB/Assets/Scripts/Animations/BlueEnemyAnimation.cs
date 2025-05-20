@@ -13,7 +13,12 @@ public class BlueEnemyAnimation : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.S))
         {
-            GetComponent<Animator>().Play("BlueEnemyAnim");
+            RunAnim();
         }
+    }
+
+    private void RunAnim()
+    {
+        GetComponent<Animator>().Play("BlueEnemyAnim");
     }
 }
