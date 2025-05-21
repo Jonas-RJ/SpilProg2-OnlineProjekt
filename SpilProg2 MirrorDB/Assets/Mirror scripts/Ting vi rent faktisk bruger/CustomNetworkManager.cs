@@ -1,10 +1,14 @@
 using Mirror;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public class CustomNetworkManager : NetworkManager
 {
-    public GameObject[] avatars;
-
+    public NetworkDataHolder DH;
+        public int characterIndex = 0;
+        public GameObject[] avatars;
+  //  [SyncVar]
+//    public int CharacterDecider;
     void onCreateCharacter(NetworkConnectionToClient connection, CreateCustomAvatarMessage message)
     {
         GameObject gameObject = Instantiate(avatars[message.AvatarIndex]);
@@ -25,11 +29,27 @@ public class CustomNetworkManager : NetworkManager
     public override void OnClientConnect()
     {
         base.OnClientConnect();
+        DH.CharacterDecider++;
 
-        CreateCustomAvatarMessage message = new()
+        if (DH.CharacterDecider < 1)
         {
-            AvatarIndex = Random.Range(0, avatars.Length)
-        };
+            characterIndex = 1;
+        }
+
+        else
+        {
+            characterIndex = 0;
+         }
+        
+               CreateCustomAvatarMessage message = new()
+            {
+
+                   AvatarIndex = characterIndex
+                
+             
+            };
+
+
         NetworkClient.Send(message);
     }
 
