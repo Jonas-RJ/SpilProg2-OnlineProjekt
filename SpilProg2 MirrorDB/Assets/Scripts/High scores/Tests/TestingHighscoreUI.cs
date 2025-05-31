@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GameSimulator : MonoBehaviour
 {
-    public GameOverUIManager uiManager;
+    public EndOfGameUIManager uiManager;
 
     void Start()
     {

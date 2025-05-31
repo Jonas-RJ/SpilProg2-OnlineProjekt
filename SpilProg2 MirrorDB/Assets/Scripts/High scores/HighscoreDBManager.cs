@@ -6,7 +6,7 @@ using System.IO;
 
 public class HighscoreDBManager : MonoBehaviour
 {
-    
+
     public class HighscoreEntry
     {
         public string name;
@@ -20,8 +20,8 @@ public class HighscoreDBManager : MonoBehaviour
             this.wins = wins;
         }
     }
-    
-    
+
+
     private void Awake()
     {
         DatabaseCreator();
@@ -74,7 +74,7 @@ public class HighscoreDBManager : MonoBehaviour
     public void AddOrUpdateWinner(string playerName)
     {
         playerName = playerName.ToUpper();
-        
+
         using (var connection = new SqliteConnection(GetDBPath()))
         {
             connection.Open();
@@ -110,7 +110,7 @@ public class HighscoreDBManager : MonoBehaviour
             }
         }
     }
-    
+
     public List<HighscoreEntry> RetrieveHighscores()
     {
         List<HighscoreEntry> highscores = new List<HighscoreEntry>();
@@ -134,10 +134,12 @@ public class HighscoreDBManager : MonoBehaviour
                 }
             }
         }
+
         return highscores;
     }
-    
-    //------------------------------------------------------------------------------------------//
+}
+
+//------------------------------------------------------------------------------------------//
     /*//Retrieves a list of the top scores from the database, have it sorted by "highest score first"
     public List<(string name, int score, int wins)> RetrieveHighscores(int limit = 8)
     {
@@ -177,4 +179,3 @@ public class HighscoreDBManager : MonoBehaviour
         //Return the highscore list to method invocator
         return highscores;
     }*/
-}
