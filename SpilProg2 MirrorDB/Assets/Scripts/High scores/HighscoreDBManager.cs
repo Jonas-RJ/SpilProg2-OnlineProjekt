@@ -118,7 +118,9 @@ public class HighscoreDBManager : MonoBehaviour
             connection.Open();
             using (var command = connection.CreateCommand())
             {
-                command.CommandText = "SELECT PlayerName, Score, Wins FROM Highscores ORDER BY Wins DESC;";
+
+                command.CommandText = "SELECT PlayerName, Score, Wins FROM Highscores ORDER BY Score DESC;";
+
                 using (var reader = command.ExecuteReader())
                 {
                     while (reader.Read())
