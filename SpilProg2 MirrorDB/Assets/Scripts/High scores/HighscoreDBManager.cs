@@ -73,6 +73,8 @@ public class HighscoreDBManager : MonoBehaviour
     //Allows the winner to add his name to the highscore list
     public void AddOrUpdateWinner(string playerName)
     {
+        playerName = playerName.ToUpper();
+        
         using (var connection = new SqliteConnection(GetDBPath()))
         {
             connection.Open();
@@ -118,12 +120,12 @@ public class HighscoreDBManager : MonoBehaviour
             connection.Open();
             using (var command = connection.CreateCommand())
             {
-                command.CommandText = "SELECT PlayerName, Score, Wins FROM Highscores ORDER BY Score DESC;";
+                command.CommandText = "SELECT PlayerName, Score, Wins FROM Highscores ORDER BY Wins DESC;";
                 using (var reader = command.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                        string name = reader.GetString(0);
+                        string name = reader.GetString(0).ToUpper();
                         int score = reader.GetInt32(1);
                         int wins = reader.GetInt32(2);
 
