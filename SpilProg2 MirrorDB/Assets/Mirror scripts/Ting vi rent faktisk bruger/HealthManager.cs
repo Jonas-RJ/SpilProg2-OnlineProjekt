@@ -27,7 +27,8 @@ public class HealthManager : NetworkBehaviour
     [SerializeField] public int player1Health;
     [SyncVar (hook = nameof(updateHealth2))]
     [SerializeField] public int player2Health;
-
+    [SyncVar] public bool player1Restart = false;
+    [SyncVar]   public bool player2Restart = false;
 [SyncVar]   public bool player1Ready = false;
 [SyncVar]   public bool player2Ready = false;
     //(hook = nameof(MakePlayer1Ready))
@@ -154,33 +155,37 @@ player1Health = NewValue;
     }*/
     
 
-
+[Command(requiresAuthority = false)]
     public void RestartGame()
     {
-        RestartButton.SetActive(false);
-        buttons.SetActive(true);
-        Winners.SetActive(false);
-        ResetValues();
+
+        if (player1Restart && player2Restart)
+        {
+            RestartButton.SetActive(false);
+            buttons.SetActive(true);
+            Winners.SetActive(false);
+            ResetValues();
 
 
-        // to if statements, for at vurdere hvem der har vundet, og hvilken counter der skal modificeres, og hvordan
-        if(player1wins)
-        {
-            winCounter1 +=1;
-            LossCounter2 +=1;
-        } 
-        if (player2wins)
-        {
-            winCounter2 +=1;
-            LossCounter1 +=1;
+            // to if statements, for at vurdere hvem der har vundet, og hvilken counter der skal modificeres, og hvordan
+            if (player1wins)
+            {
+                winCounter1 += 1;
+                LossCounter2 += 1;
+            }
+            if (player2wins)
+            {
+                winCounter2 += 1;
+                LossCounter1 += 1;
+            }
+
+            // modificerer teksten, ved at konvertere wincounters / losscounters til string.
+            Player1Counter.SetText("Player 1:\nWins:" + winCounter1.ToString() + ".\n" + ("Losses: ") + LossCounter1.ToString());
+            Player2Counter.SetText("Player 2:\nWins:" + winCounter2.ToString() + ".\n" + ("Losses: ") + LossCounter2.ToString());
+            // sætter begge bools til false, så at der ikke i næste runde bliver ændret ved begge counters, i tilfælde af at andet resultat ift. vinder / taber.
+            player2wins = false;
+            player1wins = false;
         }
-
-        // modificerer teksten, ved at konvertere wincounters / losscounters til string.
-        Player1Counter.SetText("Player 1:\nWins:" + winCounter1.ToString() + ".\n" + ("Losses: ") + LossCounter1.ToString());
-        Player2Counter.SetText("Player 2:\nWins:" + winCounter2.ToString() + ".\n" + ("Losses: ") + LossCounter2.ToString());
-        // sætter begge bools til false, så at der ikke i næste runde bliver ændret ved begge counters, i tilfælde af at andet resultat ift. vinder / taber.
-        player2wins = false;
-        player1wins = false;
     }
 
 
@@ -196,6 +201,17 @@ player1Health = NewValue;
         player2Ready = true;
         print(player2Ready);
     }
+    [Command(requiresAuthority = false)]
+    public void Player1RestartGame()
+    {
+        player1Restart = true;
+    }
+    [Command(requiresAuthority = false)]
+    public void Player2RestartGame()
+    {
+        player2Restart = false;
+    }
+
 
     [ClientRpc]
     private void ResetValues(){

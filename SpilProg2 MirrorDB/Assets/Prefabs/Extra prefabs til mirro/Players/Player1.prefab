@@ -1098,6 +1098,7 @@ GameObject:
   - component: {fileID: 7654206555955469864}
   - component: {fileID: 5040851540688382198}
   - component: {fileID: 7714357147216344548}
+  - component: {fileID: 6919784156651956791}
   - component: {fileID: 1610479394165451228}
   m_Layer: 5
   m_Name: Restart
@@ -1164,6 +1165,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6919784156651956791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4738414561616022720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08da3ac99d87ca44ba7505bb1a868565, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HM: {fileID: 0}
+  Restart1: {fileID: 1610479394165451228}
 --- !u!114 &1610479394165451228
 MonoBehaviour:
   m_ObjectHideFlags: 0
