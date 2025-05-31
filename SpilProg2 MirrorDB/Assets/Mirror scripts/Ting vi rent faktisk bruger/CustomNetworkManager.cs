@@ -29,32 +29,32 @@ public class CustomNetworkManager : NetworkManager
     public override void OnClientConnect()
     {
         base.OnClientConnect();
-                DH.CharacterDecider++;
 
-
-        if (DH.CharacterDecider < 1)
+        if (DH.Player1Taken)
         {
-            DH.characterIndex = 1;
-            print(DH.CharacterDecider);
-            // DH.CharacterDecider++;
+            DH.CmdDecidePlayer1();
         }
 
         else
         {
-            DH.characterIndex = 0;
-            DH.CharacterDecider--;
+            DH.CmdDecidePlayer2();
         }
-        
-               CreateCustomAvatarMessage message = new()
-            {
 
-                   AvatarIndex = DH.characterIndex
-                
-             
-            };
+        CreateCustomAvatarMessage message = new()
+        {
+
+            AvatarIndex = DH.characterIndex
+
+
+        };
 
 
         NetworkClient.Send(message);
+
+
+
+
+       
     }
 
 

@@ -10,7 +10,24 @@ public class NetworkDataHolder : NetworkBehaviour
 
 
 
+    [Command(requiresAuthority = false)]
+    public void CmdDecidePlayer2()
+    {
+        characterIndex = 0;
+        CharacterDecider++;
+        Player1Taken = true;
+                        Debug.Log(Player1Taken);
+        Debug.Log("player1 decided" + CharacterDecider);
+    }
 
+    [Command(requiresAuthority = false)]
+    public void CmdDecidePlayer1()
+    {
+        characterIndex = 1;
+        CharacterDecider++;
+                        Debug.Log("player2 decided" + "  " + CharacterDecider);
+
+                }
 
 
 }
