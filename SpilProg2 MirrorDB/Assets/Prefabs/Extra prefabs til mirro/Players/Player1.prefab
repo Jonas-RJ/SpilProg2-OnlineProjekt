@@ -1442,6 +1442,7 @@ GameObject:
   - component: {fileID: 4641372858805515420}
   - component: {fileID: 5753551450095624998}
   - component: {fileID: 6971799908656438916}
+  - component: {fileID: 700602593147167313}
   - component: {fileID: 2452077891836869548}
   m_Layer: 5
   m_Name: Launch Dice Button
@@ -1508,6 +1509,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &700602593147167313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5396523130237254878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20a02e6c10fc5aa41a0613a0eab23772, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HM: {fileID: 0}
+  LaunchDice: {fileID: 2452077891836869548}
 --- !u!114 &2452077891836869548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1555,6 +1570,18 @@ MonoBehaviour:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: HealthManager, Assembly-CSharp
         m_MethodName: healthUpdatePlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: HealthManager, Assembly-CSharp
+        m_MethodName: test
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

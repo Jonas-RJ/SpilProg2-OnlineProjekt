@@ -28,9 +28,10 @@ public class HealthManager : NetworkBehaviour
     [SyncVar (hook = nameof(updateHealth2))]
     [SerializeField] public int player2Health;
 
-[SyncVar (hook = nameof(MakePlayer1Ready))]   public bool player1Ready;
-[SyncVar (hook = nameof(MakePlayer2Ready))]   public bool player2Ready;
-
+[SyncVar]   public bool player1Ready = false;
+[SyncVar]   public bool player2Ready = false;
+    //(hook = nameof(MakePlayer1Ready))
+    //(hook = nameof(MakePlayer2Ready))
     public Button player1ReadyButton;
     public Button player2ReadyButton;
 
@@ -69,9 +70,8 @@ public class HealthManager : NetworkBehaviour
             WinningText.SetText("Player 2 Wins, Player 1 Loses");
             // player 1 loss
             print("player 1 loses");
-                    RestartButton.SetActive(true);
-                    player2wins = true; // sætter bool til true for at increase win counter
-                 
+            RestartButton.SetActive(true);
+            player2wins = true; // sætter bool til true for at increase win counter
         }
         if (player2Health <= 0)
         {
@@ -80,10 +80,12 @@ public class HealthManager : NetworkBehaviour
             WinningText.SetText("Player 1 Wins,  Player 2 loses");
             // player 2 loss
             print("player 2 loses");
-                    RestartButton.SetActive(true);
+            RestartButton.SetActive(true);
             player1wins = true;// sætter bool til true for at increase win counter
-                  
         }
+
+
+        RollDice();
     }
 
 
@@ -121,10 +123,10 @@ player1Health = NewValue;
 
 }
 
-public void updateHealth2(int OldValue, int NewValue){
-player2Health = NewValue;
-
-}
+    public void updateHealth2(int OldValue, int NewValue)
+    {
+    player2Health = NewValue;
+    }
 
 
     public void RollDice()
@@ -132,11 +134,15 @@ player2Health = NewValue;
         if (player1Ready && player2Ready)
         {
             healthUpdatePlayer();
+            player1Ready = false;
+            player2Ready = false;
         }
     }
 
+
+/*
     public void MakePlayer1Ready(bool OldValue, bool NewValue)
-    {   
+    {
         NewValue = player1Ready;
         NewValue = true;
     }
@@ -145,7 +151,7 @@ player2Health = NewValue;
     {
         NewValue = player2Ready;
         NewValue = true;
-    }
+    }*/
     
 
 
@@ -178,7 +184,20 @@ player2Health = NewValue;
     }
 
 
-[ClientRpc]
+[Command (requiresAuthority = false)]
+    public void CallingPlayer1Ready()
+    {
+        player1Ready = true;
+        print(player1Ready);
+    }
+[Command (requiresAuthority = false)]
+    public void CallingPlayer2Ready()
+    {
+        player2Ready = true;
+        print(player2Ready);
+    }
+
+    [ClientRpc]
     private void ResetValues(){
         player1Health = 10;
         player2Health = 10;
