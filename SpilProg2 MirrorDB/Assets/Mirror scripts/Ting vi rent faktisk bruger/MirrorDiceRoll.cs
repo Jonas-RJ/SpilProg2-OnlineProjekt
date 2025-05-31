@@ -46,7 +46,7 @@ healthmanager.diceRoll1 = diceRollP1;
 public void DiceRolling2()
 {
     diceRollP2 = UnityEngine.Random.Range(1,6);
-    healthmanager.diceRoll2 = diceRollP1;
+    healthmanager.diceRoll2 = diceRollP2;
 }
 
 [Client]

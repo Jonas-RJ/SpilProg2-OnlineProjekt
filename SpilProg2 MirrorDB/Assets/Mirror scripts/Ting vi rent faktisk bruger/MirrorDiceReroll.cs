@@ -4,7 +4,7 @@ using UnityEngine;
 public class MirrorDiceReroll : NetworkBehaviour
 {
 
-    public DiceRoll DR;
+    public MirrorDiceRoll MDR;
     public RerollText rt;
   
 
@@ -13,13 +13,14 @@ public class MirrorDiceReroll : NetworkBehaviour
     [SerializeField] private int Rerolls2;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
   
+    
     public void OnReroll()
     {
         if(Rerolls1 > 0)
         {
             Rerolls1 --;
             rt.RerollTextUpdate();
-            DR.diceRoll();
+            MDR.Dicerolling();
         }
 
         else
@@ -33,7 +34,7 @@ public class MirrorDiceReroll : NetworkBehaviour
         if(Rerolls2 > 0)
         {
             Rerolls2--;
-            DR.diceRoll2();
+            MDR.DiceRolling2();
         }
 
         else
