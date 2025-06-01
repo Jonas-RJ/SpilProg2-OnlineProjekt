@@ -1,15 +1,16 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
-public class HealthChange : MonoBehaviour
+public class HealthChangePlayer2 : MonoBehaviour
 {
-
-    public Light child1;
     //References, variables and array
+
+    public LensFlareComponentSRP child2;
     [SerializeField] private Image[] health;
     public HealthManager hr;
     [SerializeField] int change;
-    [SerializeField] int pool1;
+     [SerializeField] int pool2;
 
     Image point;
     [SerializeField] Sprite green;
@@ -18,19 +19,19 @@ public class HealthChange : MonoBehaviour
 
     void Start()
     {
-       child1 = GameObject.Find("HealthController").GetComponent<Light>();
-       hr = GameObject.Find("HealthController").GetComponent<HealthManager>();
-        child1.enabled = true;
+        child2 = GameObject.Find("HealthController").GetComponent<LensFlareComponentSRP>();
+        hr = GameObject.Find("HealthController").GetComponent<HealthManager>();
+        child2.enabled = true;
     }
-    public void Change1()
+    public void Change2()
     {
         //Sets a new variable to the dice damage
         change = hr.diceDamage;
         //Pool of lost health total
-        pool1 = pool1 + change;
+        pool2 = pool2 + change;
 
         //For loop where the individual health sprite equal to the pool is set to the red/damaged sprite
-        for (int i = 0; i < pool1; i++)
+        for (int i = 0; i < pool2; i++)
         {
             point = health[i];
             point.sprite = red;

@@ -5,6 +5,7 @@ using UnityEngine.TextCore.Text;
 
 public class CustomNetworkManager : NetworkManager
 {
+    public HealthManager HM;
     public NetworkDataHolder DH;
         public GameObject[] avatars;
   //  [SyncVar]
@@ -29,15 +30,16 @@ public class CustomNetworkManager : NetworkManager
     public override void OnClientConnect()
     {
         base.OnClientConnect();
-
         if (DH.Player1Taken)
         {
             DH.CmdDecidePlayer1();
+
         }
 
         else
         {
             DH.CmdDecidePlayer2();
+
         }
 
         CreateCustomAvatarMessage message = new()
