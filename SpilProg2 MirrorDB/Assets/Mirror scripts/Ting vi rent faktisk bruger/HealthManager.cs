@@ -27,9 +27,6 @@ public class HealthManager : NetworkBehaviour
     [SerializeField] private TMP_Text WinningText1;
     [SerializeField] private TMP_Text WinningText2;
 
-    public GameObject player1;
-    public GameObject player2;
-
     public HealthChange hc;
     public HealthChangePlayer2 hc2;
 
@@ -98,25 +95,25 @@ public class HealthManager : NetworkBehaviour
         //hvis du har 0 liv eller derunder, taber du. MANGLER LOSS CONDITION / LOSS SCREEN.
         if (player1Health <= 0 || player2Health <= 0)
         {
-            buttons1.transform.position = new Vector3(-200, -200, 0);
-            buttons2.transform.position = new Vector3(-200, -200, 0);
-            Winners1.transform.position = new Vector3(700,700,0);
-            Winners2.transform.position = new Vector3(700,700,0);
+            buttons1.transform.position = new Vector3(-2000, -2000, 0);
+            buttons2.transform.position = new Vector3(-2000, -2000, 0);
+            Winners1.transform.position = new Vector3(700,650,0);
+            Winners2.transform.position = new Vector3(700,650,0);
             RestartButton1.transform.position = new Vector3(700, 550, 0);
             RestartButton2.transform.position = new Vector3(700, 550, 0);
 
             if (player1Health <= 0)
             {
                 print("Player 1 loses");
-                WinningText1.SetText("$Player 2 Wins\nPlayer 1 Loses");
-                WinningText2.SetText("$Player 2 Wins\nPlayer 1 Loses");
+                WinningText1.SetText("You Lose");
+                WinningText2.SetText("You Win!");
                 player2wins = true;
             }
             if(player2Health <= 0)
             {
                 print("Player 2 loses");
-                WinningText1.SetText("Player 1 Wins\nPlayer 2 Loses");
-                WinningText2.SetText("Player 1 Wins\nPlayer 2 Loses");
+                WinningText1.SetText("You Win!");
+                WinningText2.SetText("You Lose");
                 player1wins = true;
             }
             //WinningText1.SetText("Player 2 Wins, Player 1 Loses");

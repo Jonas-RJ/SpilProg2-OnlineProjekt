@@ -5,6 +5,13 @@ TagManager:
   serializedVersion: 3
   tags:
   - Buttons
+  - Winners
+  - Restart
+  - Buttons2
+  - Winners2
+  - Restart2
+  - Text
+  - Text2
   layers:
   - Default
   - TransparentFX
