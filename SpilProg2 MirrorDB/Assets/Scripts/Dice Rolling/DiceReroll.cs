@@ -1,6 +1,7 @@
+using Mirror;
 using UnityEngine;
 
-public class DiceReroll : MonoBehaviour
+public class DiceReroll : NetworkBehaviour
 {
 
     // REF, DO SOMETHING!!!!
@@ -9,8 +10,8 @@ public class DiceReroll : MonoBehaviour
   
 
   // reroll int for each player, for how many rerolls they have
-    public int Rerolls1;
-    [SerializeField] private int Rerolls2;
+   [SyncVar] public int Rerolls1;
+   [SyncVar] public int Rerolls2;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
   
     public void OnReroll()
@@ -18,7 +19,7 @@ public class DiceReroll : MonoBehaviour
         if(Rerolls1 > 0)
         {
             Rerolls1 --;
-            rt.RerollTextUpdate();
+          //  rt.RerollTextUpdate();
             DR.diceRoll();
         }
 

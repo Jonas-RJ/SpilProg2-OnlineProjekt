@@ -17,7 +17,7 @@ public class BlueEnemyAnimation : MonoBehaviour
         }
     }
 
-    private void RunAnim()
+    public void RunAnim()
     {
         GetComponent<Animator>().Play("BlueEnemyAnim");
     }

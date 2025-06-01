@@ -28,11 +28,14 @@ public class DiceAnim : MonoBehaviour
         GetComponent<Animator>().Play("DiceAnim");
     }
 
-    public void ChangeUI()
+    public void ChangeUI1()
     {
-        cd.ChangeImageSprite();
+        cd.ChangeImageSprite1();
     }
-
+    public void ChangeUI2()
+    {
+        cd.ChangeImageSprite1();
+    }
     public void OpacityZero()
     {
         cd.SetOpacity(1.0f);

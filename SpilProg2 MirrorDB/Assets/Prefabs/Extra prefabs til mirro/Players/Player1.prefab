@@ -775,7 +775,7 @@ GameObject:
   - component: {fileID: 6321848541376834047}
   - component: {fileID: 6218596124311499355}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: Health Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1536,6 +1536,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20a02e6c10fc5aa41a0613a0eab23772, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BlueMan: {fileID: 0}
+  RedEnemy: {fileID: 0}
   HM: {fileID: 0}
   LaunchDice: {fileID: 2452077891836869548}
 --- !u!114 &2452077891836869548
@@ -1582,9 +1584,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: HealthManager, Assembly-CSharp
-        m_MethodName: healthUpdatePlayer
+      - m_Target: {fileID: 6167929983462238436}
+        m_TargetAssemblyTypeName: BlueManAnimation, Assembly-CSharp
+        m_MethodName: RunAnim
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1594,9 +1596,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: HealthManager, Assembly-CSharp
-        m_MethodName: test
+      - m_Target: {fileID: 6907309264909433844}
+        m_TargetAssemblyTypeName: RedEnemyAnimation, Assembly-CSharp
+        m_MethodName: RunAnim
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1940,6 +1942,7 @@ GameObject:
   - component: {fileID: 8474509791194803025}
   - component: {fileID: 4009949743459768628}
   - component: {fileID: 7181724347340064249}
+  - component: {fileID: 357855565606410896}
   m_Layer: 5
   m_Name: Dice Roll Button Player 1
   m_TagString: Untagged
@@ -2049,9 +2052,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DiceRoll, Assembly-CSharp
-        m_MethodName: diceRoll
+      - m_Target: {fileID: 357855565606410896}
+        m_TargetAssemblyTypeName: Player1RollButton, Assembly-CSharp
+        m_MethodName: EnableReRollButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2073,6 +2076,23 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &357855565606410896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6158434499028710224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3463321e6e2e9f4c865c9d11011d04d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DR: {fileID: 0}
+  RollPlayer1: {fileID: 7181724347340064249}
+  DA: {fileID: 1695229905694665592}
+  CD: {fileID: 7234231085448295515}
+  reRollButton1: {fileID: 8403300767955604389}
 --- !u!1 &6194025227192069531
 GameObject:
   m_ObjectHideFlags: 0
@@ -2870,6 +2890,7 @@ GameObject:
   - component: {fileID: 2003240987984375885}
   - component: {fileID: 2377235910491771702}
   - component: {fileID: 6093972081039518805}
+  - component: {fileID: 2448567544396832224}
   - component: {fileID: 4911685606719014937}
   m_Layer: 5
   m_Name: Reroll Player 1
@@ -2936,6 +2957,23 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2448567544396832224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8403300767955604389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ffd01ca62625514195dd7a2aed60bbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ReText: {fileID: 6843971122039090296}
+  DRE: {fileID: 0}
+  RerollP1: {fileID: 4911685606719014937}
+  DA: {fileID: 1695229905694665592}
+  CD: {fileID: 7234231085448295515}
 --- !u!114 &4911685606719014937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2980,9 +3018,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DiceReroll, Assembly-CSharp
-        m_MethodName: OnReroll
+      - m_Target: {fileID: 6843971122039090296}
+        m_TargetAssemblyTypeName: RerollText, Assembly-CSharp
+        m_MethodName: RerollTextUpdate
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3591,6 +3629,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50dc85b12c292754a8b6d485bb579146, type: 3}
+--- !u!114 &1695229905694665592 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4850426085068400365, guid: 50dc85b12c292754a8b6d485bb579146, type: 3}
+  m_PrefabInstance: {fileID: 6113221211423427989}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1917d1d5179ca68428b922a4a3ad2b00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &4947981387272677531 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1187899814296626446, guid: 50dc85b12c292754a8b6d485bb579146, type: 3}

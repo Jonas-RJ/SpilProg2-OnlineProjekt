@@ -12,6 +12,11 @@ public class HealthChange : MonoBehaviour
     [SerializeField] Sprite green;
     [SerializeField] Sprite red;
 
+
+    void Start()
+    {
+        GameObject.Find("HealthController").GetComponent<HealthManager>();
+    }
     public void Change()
     {
         //Sets a new variable to the dice damage

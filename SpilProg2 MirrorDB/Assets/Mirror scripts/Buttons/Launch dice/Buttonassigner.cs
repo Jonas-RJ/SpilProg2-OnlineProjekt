@@ -4,7 +4,8 @@ using UnityEngine.UI;
 public class Buttonassigner : MonoBehaviour
 {
 
-
+    public GameObject BlueMan;
+    public GameObject RedEnemy;
     public HealthManager HM;
     public Button LaunchDice;
 

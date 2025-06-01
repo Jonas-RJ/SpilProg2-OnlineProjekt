@@ -17,7 +17,7 @@ public class RedEnemyAnimation : MonoBehaviour
         }
     }
 
-    private void RunAnim()
+    public void RunAnim()
     {
         GetComponent<Animator>().Play("RedEnemyAnim");
     }

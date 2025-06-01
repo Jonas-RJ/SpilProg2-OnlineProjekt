@@ -11,8 +11,8 @@ public class RedManAnimation : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
+        // Update is called once per frame
+        void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -20,7 +20,7 @@ public class RedManAnimation : MonoBehaviour
         }
     }
 
-    private void RunAnim()
+    public void RunAnim()
     {
         GetComponent<Animator>().Play("RedManAnim");
     }

@@ -4,16 +4,25 @@ using UnityEngine.UI;
 public class ChangeDie : MonoBehaviour
 {
     private Image image;
+    public DiceRoll DR;
     [SerializeField] Sprite[] sprites;
 
     public void Awake()
     {
+        DR = GameObject.Find("DiceRollerController").GetComponent<DiceRoll>();
         image = GetComponent<Image>();
     }
 
-    public void ChangeImageSprite()
+    public void ChangeImageSprite1()
     {
-        int dice = Random.Range(0, sprites.Length);
+        int dice = DR.diceRollNumber - 1;
+        image.sprite = sprites[dice];
+
+        Debug.Log("Changed sprite to index: " + dice);
+    }
+    public void ChangeImageSprite2()
+    {
+        int dice = DR.diceRollNumber2 - 1;
         image.sprite = sprites[dice];
 
         Debug.Log("Changed sprite to index: " + dice);

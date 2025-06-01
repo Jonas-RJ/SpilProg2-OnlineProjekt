@@ -20,7 +20,7 @@ public class BlueManAnimation : MonoBehaviour
         }
     }
 
-    private void RunAnim()
+    public void RunAnim()
     {
         GetComponent<Animator>().Play("BlueManAnim");
     }

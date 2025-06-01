@@ -1,25 +1,26 @@
 using System;
+using Mirror;
 using UnityEngine;
 
 
-public class DiceRoll : MonoBehaviour
+public class DiceRoll : NetworkBehaviour
 {
 
 
 // en dice roll nummer til hver spiller, bruges til at udregne hvem der vinder. Skal ændres ift. Mirror. 
-    public int diceRollNumber;
-    public int diceRollNumber2;
+   [SyncVar] public int diceRollNumber;
+    [SyncVar] public int diceRollNumber2;
 
     public HealthManager HealthManager;
 
     // referencer til reroll knapperne
-    public GameObject reRollButton1;
+    
     // public GameObject reRollButton2;
    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        reRollButton1.SetActive(false);
+        //reRollButton1.SetActive(false);
         // reRollButton2.SetActive(false);
     }
 
@@ -40,10 +41,7 @@ public class DiceRoll : MonoBehaviour
     }
 
     // gør at player 1 reroll button kan ses når man trykker på den første roll knap
-    public void EnableReRollButton()
-    {
-        reRollButton1.SetActive(true);
-    }
+    
 
      public void diceRoll2()
     {
@@ -56,9 +54,6 @@ public class DiceRoll : MonoBehaviour
     }
 
     // gør at player 2 reroll button kan ses når man trykker på den anden roll knap
-    public void EnableReRollButton2()
-    {
-        // reRollButton2.SetActive(true);
-    }
+    
 
 }
