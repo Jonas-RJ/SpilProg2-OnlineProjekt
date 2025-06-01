@@ -18,11 +18,18 @@ public class HealthManager : NetworkBehaviour
     public Light child1;
     public LensFlareComponentSRP child2;
     public DiceRoll DR;
-    [SerializeField] private GameObject RestartButton;
-    [SerializeField] private GameObject buttons;
-    [SerializeField] private GameObject Winners;
-    [SerializeField] private TMP_Text WinningText;
-        
+    [SerializeField] private GameObject RestartButton1;
+    [SerializeField] private GameObject RestartButton2;
+    [SerializeField] private GameObject buttons1;
+    [SerializeField] private GameObject buttons2;
+    [SerializeField] private GameObject Winners1;
+    [SerializeField] private GameObject Winners2;
+    [SerializeField] private TMP_Text WinningText1;
+    [SerializeField] private TMP_Text WinningText2;
+
+    public GameObject player1;
+    public GameObject player2;
+
     public HealthChange hc;
     public HealthChangePlayer2 hc2;
 
@@ -67,39 +74,66 @@ public class HealthManager : NetworkBehaviour
     [SerializeField] private TMP_Text Player1Counter;
     [SerializeField] private TMP_Text Player2Counter;
 
+
     void Update()
     {
 
         if (child1.isActiveAndEnabled)
         {
             hc = GameObject.Find("Player1(Clone)").GetComponentInChildren<HealthChange>();
+            buttons1 = GameObject.FindGameObjectWithTag("Buttons");
+            Winners1 = GameObject.FindGameObjectWithTag("Winners");
+            RestartButton1 = GameObject.FindGameObjectWithTag("Restart");
+            WinningText1 = GameObject.FindGameObjectWithTag("Text").GetComponent<TMP_Text>();
         }
 
         if (child2.isActiveAndEnabled)
         {
-        hc2 = GameObject.Find("Player2(Clone)").GetComponentInChildren<HealthChangePlayer2>();
+            hc2 = GameObject.Find("Player2(Clone)").GetComponentInChildren<HealthChangePlayer2>();
+            buttons2 = GameObject.FindGameObjectWithTag("Buttons2");
+            Winners2 = GameObject.FindGameObjectWithTag("Winners2");
+            RestartButton2 = GameObject.FindGameObjectWithTag("Restart2");
+            WinningText2 = GameObject.FindGameObjectWithTag("Text2").GetComponent<TMP_Text>();
         }
         //hvis du har 0 liv eller derunder, taber du. MANGLER LOSS CONDITION / LOSS SCREEN.
-        if (player1Health <= 0)
+        if (player1Health <= 0 || player2Health <= 0)
         {
-            buttons.SetActive(false);
-            Winners.SetActive(true);
-            WinningText.SetText("Player 2 Wins, Player 1 Loses");
+            buttons1.transform.position = new Vector3(-200, -200, 0);
+            buttons2.transform.position = new Vector3(-200, -200, 0);
+            Winners1.transform.position = new Vector3(700,700,0);
+            Winners2.transform.position = new Vector3(700,700,0);
+            RestartButton1.transform.position = new Vector3(700, 550, 0);
+            RestartButton2.transform.position = new Vector3(700, 550, 0);
+
+            if (player1Health <= 0)
+            {
+                print("Player 1 loses");
+                WinningText1.SetText("$Player 2 Wins\nPlayer 1 Loses");
+                WinningText2.SetText("$Player 2 Wins\nPlayer 1 Loses");
+                player2wins = true;
+            }
+            if(player2Health <= 0)
+            {
+                print("Player 2 loses");
+                WinningText1.SetText("Player 1 Wins\nPlayer 2 Loses");
+                WinningText2.SetText("Player 1 Wins\nPlayer 2 Loses");
+                player1wins = true;
+            }
+            //WinningText1.SetText("Player 2 Wins, Player 1 Loses");
             // player 1 loss
-            print("player 1 loses");
-            RestartButton.SetActive(true);
-            player2wins = true; // sætter bool til true for at increase win counter
+            //print("player 1 loses");
+            //player2wins = true; // sætter bool til true for at increase win counter
         }
-        if (player2Health <= 0)
+        /*if (player2Health <= 0)
         {
-            buttons.SetActive(false);
-            Winners.SetActive(true);
-            WinningText.SetText("Player 1 Wins,  Player 2 loses");
+            buttons1.SetActive(false);
+            Winners1.SetActive(true);
+            WinningText1.SetText("Player 1 Wins,  Player 2 loses");
             // player 2 loss
             print("player 2 loses");
-            RestartButton.SetActive(true);
+            RestartButton1.SetActive(true);
             player1wins = true;// sætter bool til true for at increase win counter
-        }
+        }*/
 
 
         RollDice();
@@ -180,9 +214,9 @@ public class HealthManager : NetworkBehaviour
 
         if (player1Restart && player2Restart)
         {
-            RestartButton.SetActive(false);
-            buttons.SetActive(true);
-            Winners.SetActive(false);
+            RestartButton1.SetActive(false);
+            buttons1.SetActive(true);
+            Winners1.SetActive(false);
             ResetValues();
  
 
