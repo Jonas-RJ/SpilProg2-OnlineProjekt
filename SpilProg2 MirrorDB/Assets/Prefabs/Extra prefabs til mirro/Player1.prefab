@@ -2652,7 +2652,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneId: 0
-  _assetId: 1390223164
+  _assetId: 866630425
   serverOnly: 0
   visibility: 0
   hasSpawned: 0
@@ -2671,8 +2671,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  cameraHolder: {fileID: 0}
-  offset: {x: 0, y: 0, z: 0}
+  CameraItself: {fileID: 0}
 --- !u!1 &6408094860404123828
 GameObject:
   m_ObjectHideFlags: 0

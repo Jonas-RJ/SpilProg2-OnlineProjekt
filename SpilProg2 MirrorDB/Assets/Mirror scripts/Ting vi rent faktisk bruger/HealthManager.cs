@@ -24,8 +24,10 @@ public class HealthManager : NetworkBehaviour
     [SerializeField] private GameObject buttons2;
     [SerializeField] private GameObject Winners1;
     [SerializeField] private GameObject Winners2;
-    [SerializeField] private TMP_Text WinningText1;
-    [SerializeField] private TMP_Text WinningText2;
+    [SerializeField] private GameObject Losers1;
+    [SerializeField] private GameObject Losers2;
+    //[SerializeField] private TMP_Text WinningText1;
+    //[SerializeField] private TMP_Text WinningText2;
 
     public HealthChange hc;
     public HealthChangePlayer2 hc2;
@@ -80,8 +82,9 @@ public class HealthManager : NetworkBehaviour
             hc = GameObject.Find("Player1(Clone)").GetComponentInChildren<HealthChange>();
             buttons1 = GameObject.FindGameObjectWithTag("Buttons");
             Winners1 = GameObject.FindGameObjectWithTag("Winners");
+            Losers1 = GameObject.FindGameObjectWithTag("Losers1");
             RestartButton1 = GameObject.FindGameObjectWithTag("Restart");
-            WinningText1 = GameObject.FindGameObjectWithTag("Text").GetComponent<TMP_Text>();
+           // WinningText1 = GameObject.FindGameObjectWithTag("Text").GetComponent<TMP_Text>();
         }
 
         if (child2.isActiveAndEnabled)
@@ -89,31 +92,34 @@ public class HealthManager : NetworkBehaviour
             hc2 = GameObject.Find("Player2(Clone)").GetComponentInChildren<HealthChangePlayer2>();
             buttons2 = GameObject.FindGameObjectWithTag("Buttons2");
             Winners2 = GameObject.FindGameObjectWithTag("Winners2");
+            Losers2 = GameObject.FindGameObjectWithTag("Losers2");
             RestartButton2 = GameObject.FindGameObjectWithTag("Restart2");
-            WinningText2 = GameObject.FindGameObjectWithTag("Text2").GetComponent<TMP_Text>();
+          //  WinningText2 = GameObject.FindGameObjectWithTag("Text2").GetComponent<TMP_Text>();
         }
         //hvis du har 0 liv eller derunder, taber du. MANGLER LOSS CONDITION / LOSS SCREEN.
         if (player1Health <= 0 || player2Health <= 0)
         {
             buttons1.transform.position = new Vector3(-2000, -2000, 0);
             buttons2.transform.position = new Vector3(-2000, -2000, 0);
-            Winners1.transform.position = new Vector3(700,650,0);
-            Winners2.transform.position = new Vector3(700,650,0);
-            RestartButton1.transform.position = new Vector3(700, 550, 0);
-            RestartButton2.transform.position = new Vector3(700, 550, 0);
+            RestartButton1.transform.position = new Vector3(700, 350, 0);
+            RestartButton2.transform.position = new Vector3(700, 350, 0);
 
             if (player1Health <= 0)
             {
+                Winners2.transform.position = new Vector3(700,650,0);
+                Losers1.transform.position = new Vector3(700, 650, 0);
                 print("Player 1 loses");
-                WinningText1.SetText("You Lose");
-                WinningText2.SetText("You Win!");
+                //WinningText1.SetText("You Lose");
+                //WinningText2.SetText("You Win!");
                 player2wins = true;
             }
             if(player2Health <= 0)
             {
+                Winners1.transform.position = new Vector3(700,650,0);
+                Losers2.transform.position = new Vector3(700, 650, 0);
                 print("Player 2 loses");
-                WinningText1.SetText("You Win!");
-                WinningText2.SetText("You Lose");
+                //WinningText1.SetText("You Win!");
+               // WinningText2.SetText("You Lose");
                 player1wins = true;
             }
             //WinningText1.SetText("Player 2 Wins, Player 1 Loses");

@@ -12,6 +12,10 @@ TagManager:
   - Restart2
   - Text
   - Text2
+  - Losers1
+  - Losers2
+  - ScoreOverview1
+  - ScoreOverview2
   layers:
   - Default
   - TransparentFX
