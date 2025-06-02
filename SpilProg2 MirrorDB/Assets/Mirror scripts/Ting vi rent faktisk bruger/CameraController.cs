@@ -16,7 +16,7 @@ cameraHolder.SetActive(true);
 
     void Update()
     {
-        if(SceneManager.GetActiveScene().name == "GameScene")
+        if(SceneManager.GetActiveScene().name == "Mirror Eksperiment")
         {
             cameraHolder.transform.position = transform.position + offset;
         }

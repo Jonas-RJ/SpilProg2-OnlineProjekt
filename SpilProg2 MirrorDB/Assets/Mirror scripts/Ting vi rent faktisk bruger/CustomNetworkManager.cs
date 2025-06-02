@@ -7,7 +7,9 @@ public class CustomNetworkManager : NetworkManager
 {
     public HealthManager HM;
     public NetworkDataHolder DH;
-        public GameObject[] avatars;
+    public GameObject[] avatars;
+
+
   //  [SyncVar]
     //    public int CharacterDecider;
     void onCreateCharacter(NetworkConnectionToClient connection, CreateCustomAvatarMessage message)
@@ -20,43 +22,53 @@ public class CustomNetworkManager : NetworkManager
     }
 
 
-    public override void OnStartHost()
+    public override void OnStartServer()
     {
-        base.OnStartHost();
+        base.OnStartServer();
 
         NetworkServer.RegisterHandler<CreateCustomAvatarMessage>(onCreateCharacter);
     }
 
-    public override void OnClientConnect()
+
+    public override void OnServerConnect(NetworkConnectionToClient conn)
     {
-        base.OnClientConnect();
-        if (DH.Player1Taken)
+     
+    }
+
+    public override void OnServerAddPlayer(NetworkConnectionToClient conn)
+    {
+          // base.OnServerAddPlayer(conn);
+
+        int characterIndex = 0;
+
+        if (!DH.Player1Taken)
         {
             DH.CmdDecidePlayer1();
+            characterIndex = 0;
 
         }
 
         else
         {
             DH.CmdDecidePlayer2();
-
+            characterIndex = 1;
         }
 
         CreateCustomAvatarMessage message = new()
         {
 
-            AvatarIndex = DH.characterIndex
+            AvatarIndex = characterIndex
 
 
         };
 
+        onCreateCharacter(conn, message);
+      // NetworkClient.Send(message);
+    }
+    public override void OnClientConnect()
+    {
 
-        NetworkClient.Send(message);
 
-
-
-
-       
     }
 
 

@@ -15,8 +15,7 @@ public class NetworkDataHolder : NetworkBehaviour
     {
         characterIndex = 0;
         CharacterDecider++;
-        Player1Taken = true;
-                        Debug.Log(Player1Taken);
+        Debug.Log(Player1Taken);
         Debug.Log("player1 decided" + CharacterDecider);
     }
 
@@ -25,7 +24,8 @@ public class NetworkDataHolder : NetworkBehaviour
     {
         characterIndex = 1;
         CharacterDecider++;
-                        Debug.Log("player2 decided" + "  " + CharacterDecider);
+        Debug.Log("player2 decided" + "  " + CharacterDecider);
+        Player1Taken = true;
 
                 }
 
