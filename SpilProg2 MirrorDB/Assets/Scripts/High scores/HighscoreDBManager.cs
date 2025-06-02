@@ -55,7 +55,7 @@ public class HighscoreDBManager : MonoBehaviour
             //Create an SQL command, to send SQL to the database
             using (var command = connection.CreateCommand())
             {
-                //This SQL command creates a new table for highscores if it doesn't exist yet //TODO perhaps rename Wins to Victories?
+                //This SQL command creates a new table for highscores if it doesn't exist yet
                 command.CommandText = @"
                     CREATE TABLE IF NOT EXISTS Highscores (
                         Id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -98,7 +98,7 @@ public class HighscoreDBManager : MonoBehaviour
                         command.Parameters.Add(new SqliteParameter("@Wins", currentWins + 1));
                         command.ExecuteNonQuery();
                     }
-                    //If winning player isn't in the DB - add a new entry with name, no. of wins and a score 
+                    //If winning player IS NOT in the DB - add a new entry with name, no. of wins and a score 
                     else
                     {
                         reader.Close();
@@ -134,48 +134,6 @@ public class HighscoreDBManager : MonoBehaviour
                 }
             }
         }
-
         return highscores;
     }
 }
-
-//------------------------------------------------------------------------------------------//
-    /*//Retrieves a list of the top scores from the database, have it sorted by "highest score first"
-    public List<(string name, int score, int wins)> RetrieveHighscores(int limit = 8)
-    {
-        //Create an empty list to store retrieved results
-        List<(string, int, int)> highscores = new();
-
-        //Open a connection to the database
-        using (var connection = new SqliteConnection(GetDBPath()))
-        {
-            connection.Open();
-
-            //Creates SQL command to select top highscores
-            using (var command = connection.CreateCommand())
-            {
-                command.CommandText = "SELECT PlayerName, Score, Wins FROM Highscores ORDER BY Score DESC LIMIT @limit;";
-                command.Parameters.Add(new SqliteParameter("@limit", limit));
-                
-                //Execute the command and gets a "reader" to go through the results
-                using (IDataReader reader = command.ExecuteReader())
-                {
-                    //Keep reading the rows
-                    while (reader.Read())
-                    {
-                        //First column = winning player name
-                        string name = reader.GetString(0);
-                        //Second column = total score
-                        int score = reader.GetInt32(1);
-                        //third column = number of wins
-                        int wins = reader.GetInt32(2);
-
-                        //Adds the read info to our highscore leaders list, to be shown
-                        highscores.Add((name, score, wins));
-                    }
-                }
-            }
-        }
-        //Return the highscore list to method invocator
-        return highscores;
-    }*/

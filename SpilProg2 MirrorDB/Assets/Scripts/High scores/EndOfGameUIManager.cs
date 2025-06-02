@@ -7,16 +7,16 @@ public class EndOfGameUIManager : MonoBehaviour
     public HighscoreDBManager dbManager;
 
     public GameObject winnerPromptPanel;
-    public TMP_InputField playerNameInput;  // Use InputField if not using TMP
+    public TMP_InputField playerNameInput;
     public GameObject loserMessage;
-    public TextMeshProUGUI highscoreText;   // Use Text if not using TMP
+    public TextMeshProUGUI highscoreText;
 
-    public GameObject highscorePanel; // This shows highscores on game end or menu
+    public GameObject highscorePanel;
 
-    // Called at game end — pass in true if the player won
+
     public void OnGameOver(bool playerWon)
     {
-        highscorePanel.SetActive(true); // always show highscore list
+        highscorePanel.SetActive(true);
 
         if (playerWon)
         {
@@ -29,10 +29,9 @@ public class EndOfGameUIManager : MonoBehaviour
             loserMessage.SetActive(true);
         }
 
-        ShowHighscores(); // update the list after match
+        ShowHighscores();
     }
 
-    // Called when winner submits name
     public void OnSubmitName()
     {
         string name = playerNameInput.text;
@@ -40,14 +39,14 @@ public class EndOfGameUIManager : MonoBehaviour
         if (!string.IsNullOrEmpty(name))
         {
             name = name.ToUpper();
-            
+
             dbManager.AddOrUpdateWinner(name);
             winnerPromptPanel.SetActive(false);
             ShowHighscores();
         }
     }
 
-    // This displays the highscore list
+
     public void ShowHighscores()
     {
         var highscores = dbManager.RetrieveHighscores();
@@ -60,6 +59,7 @@ public class EndOfGameUIManager : MonoBehaviour
             string formatted = $"{entry.name,-10} {entry.wins,5} {entry.score,9}";
             highscoreText.text += formatted + "\n";
         }
+
         FindObjectOfType<ScoreDisplayManager>()?.ShowScoreboard();
     }
 }
