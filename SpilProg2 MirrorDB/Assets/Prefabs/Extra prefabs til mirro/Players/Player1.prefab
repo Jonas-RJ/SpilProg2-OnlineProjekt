@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4295766677064814680}
-  m_Layer: 0
-  m_Name: CameraHolder
+  m_Layer: 6
+  m_Name: P1CamHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 3052148063242953380}
   - component: {fileID: 2957675306334119322}
   - component: {fileID: 4293315983568372471}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Image (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,8 +116,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 867206269814076955}
-  - component: {fileID: 4399611916137243820}
-  m_Layer: 0
+  - component: {fileID: 5599861155895183670}
+  - component: {fileID: 3021828782748601447}
+  m_Layer: 6
   m_Name: Player1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,7 +142,7 @@ Transform:
   - {fileID: 6849086102167225918}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4399611916137243820
+--- !u!114 &5599861155895183670
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,6 +159,24 @@ MonoBehaviour:
   serverOnly: 0
   visibility: 0
   hasSpawned: 0
+--- !u!114 &3021828782748601447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2403306813647894446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d33fb91d948826c4e8392b029d5adf18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  cameraHolder: {fileID: 0}
+  offset: {x: 0, y: 0, z: 0}
+  CameraItself: {fileID: 6194025227192069531}
 --- !u!1 &2540943355532504823
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,7 +189,8 @@ GameObject:
   - component: {fileID: 2428492242515459780}
   - component: {fileID: 6297629198311870279}
   - component: {fileID: 29459354796911927}
-  m_Layer: 5
+  - component: {fileID: 6294395935405864495}
+  m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -218,7 +238,7 @@ Canvas:
   m_GameObject: {fileID: 2540943355532504823}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 8599357171372875021}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -272,6 +292,23 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &6294395935405864495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2540943355532504823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2576730625b1632468cbcbfe5e721f88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  _teamId: 1
+  forceShown: 0
 --- !u!1 &2564135785958544069
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,7 +318,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4303193818174972181}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Winners
   m_TagString: Winners
   m_Icon: {fileID: 0}
@@ -319,7 +356,7 @@ GameObject:
   - component: {fileID: 5034719730115998068}
   - component: {fileID: 6100076888185948291}
   - component: {fileID: 315239908584462760}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Image (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -394,7 +431,7 @@ GameObject:
   - component: {fileID: 7417516919721644483}
   - component: {fileID: 2454292383620978414}
   - component: {fileID: 52434391264197200}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Player1 Counter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -530,7 +567,7 @@ GameObject:
   - component: {fileID: 1678784284536806221}
   - component: {fileID: 460369421140670839}
   - component: {fileID: 5970506444008361887}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Image (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -605,7 +642,7 @@ GameObject:
   - component: {fileID: 4884026748718661215}
   - component: {fileID: 2500211947624271819}
   - component: {fileID: 8542975030149440846}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Image (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -680,7 +717,7 @@ GameObject:
   - component: {fileID: 5761405577029082007}
   - component: {fileID: 4044254120620074340}
   - component: {fileID: 7717323664596080491}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Image (0)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -756,7 +793,7 @@ GameObject:
   - component: {fileID: 361816505940438116}
   - component: {fileID: 6321848541376834047}
   - component: {fileID: 6218596124311499355}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: HealthPanel1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -870,7 +907,7 @@ GameObject:
   - component: {fileID: 6005914898860798301}
   - component: {fileID: 3566104496239801864}
   - component: {fileID: 3122548104943616219}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Image (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -945,7 +982,7 @@ GameObject:
   - component: {fileID: 196134130772643347}
   - component: {fileID: 1339111130558407509}
   - component: {fileID: 4016987143211207796}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1083,7 +1120,7 @@ GameObject:
   - component: {fileID: 7714357147216344548}
   - component: {fileID: 6919784156651956791}
   - component: {fileID: 1610479394165451228}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Restart
   m_TagString: Restart
   m_Icon: {fileID: 0}
@@ -1229,7 +1266,7 @@ GameObject:
   - component: {fileID: 3222071535179737256}
   - component: {fileID: 669495033995193449}
   - component: {fileID: 2616444467743623720}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Image (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1304,7 +1341,7 @@ GameObject:
   - component: {fileID: 1737971959809601379}
   - component: {fileID: 651315004657502226}
   - component: {fileID: 3255812963625528082}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: 'Player2 Counter '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1442,7 +1479,7 @@ GameObject:
   - component: {fileID: 6971799908656438916}
   - component: {fileID: 700602593147167313}
   - component: {fileID: 2452077891836869548}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Launch Dice Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1602,7 +1639,7 @@ GameObject:
   - component: {fileID: 7614805688016670083}
   - component: {fileID: 2095595311938171488}
   - component: {fileID: 5902617662833456982}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Image (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1677,7 +1714,7 @@ GameObject:
   - component: {fileID: 1920551775710191690}
   - component: {fileID: 2280121001616346830}
   - component: {fileID: 5267384550692920014}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1815,7 +1852,7 @@ GameObject:
   - component: {fileID: 5220441603551626255}
   - component: {fileID: 8855019788966569016}
   - component: {fileID: 6167929983462238436}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Blue Man
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1926,7 +1963,7 @@ GameObject:
   - component: {fileID: 4009949743459768628}
   - component: {fileID: 7181724347340064249}
   - component: {fileID: 357855565606410896}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Dice Roll Button Player 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2087,13 +2124,13 @@ GameObject:
   - component: {fileID: 2473628346417850786}
   - component: {fileID: 8599357171372875021}
   - component: {fileID: 7942290397342014710}
-  m_Layer: 0
-  m_Name: Main Camera
+  m_Layer: 6
+  m_Name: P1Cam
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2473628346417850786
 Transform:
   m_ObjectHideFlags: 0
@@ -2148,7 +2185,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 64
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -2216,7 +2253,7 @@ GameObject:
   - component: {fileID: 1957734470888629603}
   - component: {fileID: 9087937609576607723}
   - component: {fileID: 6843971122039090296}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Rerolls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2366,7 +2403,7 @@ GameObject:
   - component: {fileID: 8009511886007169817}
   - component: {fileID: 487763338637814284}
   - component: {fileID: 5082157514706674087}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Image (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2439,7 +2476,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3050863514327378390}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Buttons
   m_TagString: Buttons
   m_Icon: {fileID: 0}
@@ -2479,7 +2516,7 @@ GameObject:
   - component: {fileID: 4373841677769375421}
   - component: {fileID: 4554554955628965849}
   - component: {fileID: 4925644613281100173}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Image (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2556,7 +2593,7 @@ GameObject:
   - component: {fileID: 171175645043906004}
   - component: {fileID: 7080369703442602854}
   - component: {fileID: 6907309264909433844}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Red Man Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2665,7 +2702,7 @@ GameObject:
   - component: {fileID: 300154235468254152}
   - component: {fileID: 2005886325115313981}
   - component: {fileID: 8815287469364007414}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: RawImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2737,7 +2774,7 @@ GameObject:
   - component: {fileID: 4932857331840878912}
   - component: {fileID: 8265687587558122375}
   - component: {fileID: 3234848816078566798}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2875,7 +2912,7 @@ GameObject:
   - component: {fileID: 6093972081039518805}
   - component: {fileID: 2448567544396832224}
   - component: {fileID: 4911685606719014937}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Reroll Player 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3026,7 +3063,7 @@ GameObject:
   - component: {fileID: 945013206027698142}
   - component: {fileID: 3977245690440953876}
   - component: {fileID: 8408536772181767523}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Dice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3137,7 +3174,7 @@ GameObject:
   - component: {fileID: 7742992034750532940}
   - component: {fileID: 5149406318636851618}
   - component: {fileID: 6065061942863371287}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3273,7 +3310,7 @@ GameObject:
   - component: {fileID: 1965742150474404646}
   - component: {fileID: 3933286661327281035}
   - component: {fileID: 3319282357868220528}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Player Winning Text
   m_TagString: Text
   m_Icon: {fileID: 0}
@@ -3409,6 +3446,10 @@ PrefabInstance:
     - target: {fileID: 1652720054810203420, guid: d1ceec7689464e1468ba5bbffaf33773, type: 3}
       propertyPath: m_Name
       value: DiceRoll
+      objectReference: {fileID: 0}
+    - target: {fileID: 1652720054810203420, guid: d1ceec7689464e1468ba5bbffaf33773, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2284723130612319657, guid: d1ceec7689464e1468ba5bbffaf33773, type: 3}
       propertyPath: m_Pivot.x
@@ -3606,6 +3647,10 @@ PrefabInstance:
     - target: {fileID: 7610977911511530821, guid: 50dc85b12c292754a8b6d485bb579146, type: 3}
       propertyPath: m_Name
       value: DiceAnim
+      objectReference: {fileID: 0}
+    - target: {fileID: 7610977911511530821, guid: 50dc85b12c292754a8b6d485bb579146, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

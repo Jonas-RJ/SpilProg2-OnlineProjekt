@@ -5,20 +5,27 @@ using UnityEngine.SceneManagement;
 
 public class CameraController : NetworkBehaviour
 {
-public GameObject cameraHolder;
-public UnityEngine.Vector3 offset;
+//public GameObject cameraHolder;
+    //public UnityEngine.Vector3 offset;
+
+    public GameObject CameraItself;
 
 
-public override void OnStartAuthority()
-{
-cameraHolder.SetActive(true);
-}
-
-    void Update()
+    public override void OnStartLocalPlayer()
     {
+        CameraItself.SetActive(true);
+    }
+/*
+    public override void OnStartAuthority()
+    {
+        cameraHolder.SetActive(true);
+    }
+
+void Update()
+ {
         if(SceneManager.GetActiveScene().name == "Mirror Eksperiment")
         {
             cameraHolder.transform.position = transform.position + offset;
         }
-    }
+ }*/
 }
