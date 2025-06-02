@@ -6,7 +6,7 @@ using System.IO;
 
 public class HighscoreDBManager : MonoBehaviour
 {
-    
+
     public class HighscoreEntry
     {
         public string name;
@@ -20,8 +20,8 @@ public class HighscoreDBManager : MonoBehaviour
             this.wins = wins;
         }
     }
-    
-    
+
+
     private void Awake()
     {
         DatabaseCreator();
@@ -73,6 +73,8 @@ public class HighscoreDBManager : MonoBehaviour
     //Allows the winner to add his name to the highscore list
     public void AddOrUpdateWinner(string playerName)
     {
+        playerName = playerName.ToUpper();
+
         using (var connection = new SqliteConnection(GetDBPath()))
         {
             connection.Open();
@@ -108,7 +110,7 @@ public class HighscoreDBManager : MonoBehaviour
             }
         }
     }
-    
+
     public List<HighscoreEntry> RetrieveHighscores()
     {
         List<HighscoreEntry> highscores = new List<HighscoreEntry>();
@@ -118,12 +120,12 @@ public class HighscoreDBManager : MonoBehaviour
             connection.Open();
             using (var command = connection.CreateCommand())
             {
-                command.CommandText = "SELECT PlayerName, Score, Wins FROM Highscores ORDER BY Score DESC;";
+                command.CommandText = "SELECT PlayerName, Score, Wins FROM Highscores ORDER BY Wins DESC;";
                 using (var reader = command.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                        string name = reader.GetString(0);
+                        string name = reader.GetString(0).ToUpper();
                         int score = reader.GetInt32(1);
                         int wins = reader.GetInt32(2);
 
@@ -132,10 +134,12 @@ public class HighscoreDBManager : MonoBehaviour
                 }
             }
         }
+
         return highscores;
     }
-    
-    //------------------------------------------------------------------------------------------//
+}
+
+//------------------------------------------------------------------------------------------//
     /*//Retrieves a list of the top scores from the database, have it sorted by "highest score first"
     public List<(string name, int score, int wins)> RetrieveHighscores(int limit = 8)
     {
@@ -175,4 +179,3 @@ public class HighscoreDBManager : MonoBehaviour
         //Return the highscore list to method invocator
         return highscores;
     }*/
-}

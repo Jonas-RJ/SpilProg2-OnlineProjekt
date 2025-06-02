@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class GameOverUIManager : MonoBehaviour
+public class EndOfGameUIManager : MonoBehaviour
 {
     public HighscoreDBManager dbManager;
 
@@ -39,6 +39,8 @@ public class GameOverUIManager : MonoBehaviour
 
         if (!string.IsNullOrEmpty(name))
         {
+            name = name.ToUpper();
+            
             dbManager.AddOrUpdateWinner(name);
             winnerPromptPanel.SetActive(false);
             ShowHighscores();
@@ -58,5 +60,6 @@ public class GameOverUIManager : MonoBehaviour
             string formatted = $"{entry.name,-10} {entry.wins,5} {entry.score,9}";
             highscoreText.text += formatted + "\n";
         }
+        FindObjectOfType<ScoreDisplayManager>()?.ShowScoreboard();
     }
 }
