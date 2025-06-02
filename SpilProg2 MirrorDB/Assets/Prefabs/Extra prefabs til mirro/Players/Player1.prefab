@@ -247,8 +247,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: NAME
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1c55fea9adeb1134d800ceb817602617, type: 2}
-  m_sharedMaterial: {fileID: -3204058222859782543, guid: 1c55fea9adeb1134d800ceb817602617, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -384,8 +384,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 300
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1c55fea9adeb1134d800ceb817602617, type: 2}
-  m_sharedMaterial: {fileID: -3204058222859782543, guid: 1c55fea9adeb1134d800ceb817602617, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1184,8 +1184,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Player 1 \nWins: 0. \nLosses: 0."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1c55fea9adeb1134d800ceb817602617, type: 2}
-  m_sharedMaterial: {fileID: -3204058222859782543, guid: 1c55fea9adeb1134d800ceb817602617, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b3eb69de1bc3bfe489a5beaaa1af8be3, type: 2}
+  m_sharedMaterial: {fileID: -2390643975181869759, guid: b3eb69de1bc3bfe489a5beaaa1af8be3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1954,8 +1954,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: '#3'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1c55fea9adeb1134d800ceb817602617, type: 2}
-  m_sharedMaterial: {fileID: -3204058222859782543, guid: 1c55fea9adeb1134d800ceb817602617, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2185,8 +2185,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Launch Dice
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1c55fea9adeb1134d800ceb817602617, type: 2}
-  m_sharedMaterial: {fileID: -3204058222859782543, guid: 1c55fea9adeb1134d800ceb817602617, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cda0c583e9ee56f4b9a1de2443f865d8, type: 2}
+  m_sharedMaterial: {fileID: -90014116825158048, guid: cda0c583e9ee56f4b9a1de2443f865d8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2680,8 +2680,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Player 2 \nWins: 0. \nLosses: 0."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1c55fea9adeb1134d800ceb817602617, type: 2}
-  m_sharedMaterial: {fileID: -3204058222859782543, guid: 1c55fea9adeb1134d800ceb817602617, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b3eb69de1bc3bfe489a5beaaa1af8be3, type: 2}
+  m_sharedMaterial: {fileID: -2390643975181869759, guid: b3eb69de1bc3bfe489a5beaaa1af8be3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3053,8 +3053,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Player 1 button
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1c55fea9adeb1134d800ceb817602617, type: 2}
-  m_sharedMaterial: {fileID: -3204058222859782543, guid: 1c55fea9adeb1134d800ceb817602617, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cda0c583e9ee56f4b9a1de2443f865d8, type: 2}
+  m_sharedMaterial: {fileID: -90014116825158048, guid: cda0c583e9ee56f4b9a1de2443f865d8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3592,8 +3592,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Rerolls left: 3'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1c55fea9adeb1134d800ceb817602617, type: 2}
-  m_sharedMaterial: {fileID: -3204058222859782543, guid: 1c55fea9adeb1134d800ceb817602617, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b3eb69de1bc3bfe489a5beaaa1af8be3, type: 2}
+  m_sharedMaterial: {fileID: -2390643975181869759, guid: b3eb69de1bc3bfe489a5beaaa1af8be3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4658,8 +4658,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Restart game
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1c55fea9adeb1134d800ceb817602617, type: 2}
-  m_sharedMaterial: {fileID: -3204058222859782543, guid: 1c55fea9adeb1134d800ceb817602617, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b3eb69de1bc3bfe489a5beaaa1af8be3, type: 2}
+  m_sharedMaterial: {fileID: -2390643975181869759, guid: b3eb69de1bc3bfe489a5beaaa1af8be3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4945,8 +4945,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: SCORE
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1c55fea9adeb1134d800ceb817602617, type: 2}
-  m_sharedMaterial: {fileID: -3204058222859782543, guid: 1c55fea9adeb1134d800ceb817602617, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5268,8 +5268,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Reroll P1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1c55fea9adeb1134d800ceb817602617, type: 2}
-  m_sharedMaterial: {fileID: -3204058222859782543, guid: 1c55fea9adeb1134d800ceb817602617, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cda0c583e9ee56f4b9a1de2443f865d8, type: 2}
+  m_sharedMaterial: {fileID: -90014116825158048, guid: cda0c583e9ee56f4b9a1de2443f865d8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5404,8 +5404,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: WINS
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1c55fea9adeb1134d800ceb817602617, type: 2}
-  m_sharedMaterial: {fileID: -3204058222859782543, guid: 1c55fea9adeb1134d800ceb817602617, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
