@@ -16,6 +16,9 @@ public class HealthChangePlayer2 : MonoBehaviour
     [SerializeField] Sprite green;
     [SerializeField] Sprite red;
 
+    [SerializeField] GameObject winners2;
+    [SerializeField] GameObject restart2;
+    [SerializeField] GameObject loser2;
 
     void Start()
     {
@@ -29,6 +32,11 @@ public class HealthChangePlayer2 : MonoBehaviour
         change = hr.diceDamage;
         //Pool of lost health total
         pool2 = pool2 + change;
+
+        if(pool2 > 10)
+        {
+            pool2 = 10;
+        }
 
         //For loop where the individual health sprite equal to the pool is set to the red/damaged sprite
         for (int i = 0; i < pool2; i++)
@@ -46,4 +54,20 @@ public class HealthChangePlayer2 : MonoBehaviour
             p.sprite = green;
         }
     }
+
+    public void ActivateWinners2()
+    {
+        winners2.SetActive(true);
+    }
+
+    public void ActivateRestart2()
+    {
+        restart2.SetActive(true);
+    }
+
+    public void ActivateLoser2()
+    {
+        loser2.SetActive(true);
+    }
+
 }

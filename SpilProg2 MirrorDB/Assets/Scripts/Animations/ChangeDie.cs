@@ -15,14 +15,14 @@ public class ChangeDie : MonoBehaviour
 
     public void ChangeImageSprite1()
     {
-        int dice = DR.diceRollNumber - 1;
+        int dice = DR.diceRollNumber;
         image.sprite = sprites[dice];
 
         Debug.Log("Changed sprite to index: " + dice);
     }
     public void ChangeImageSprite2()
     {
-        int dice = DR.diceRollNumber2 - 1;
+        int dice = DR.diceRollNumber2;
         image.sprite = sprites[dice];
 
         Debug.Log("Changed sprite to index: " + dice);

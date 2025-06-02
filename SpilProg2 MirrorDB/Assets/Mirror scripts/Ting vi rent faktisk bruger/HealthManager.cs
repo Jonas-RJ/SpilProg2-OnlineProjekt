@@ -26,6 +26,7 @@ public class HealthManager : NetworkBehaviour
     [SerializeField] private GameObject Winners2;
     [SerializeField] private GameObject Losers1;
     [SerializeField] private GameObject Losers2;
+
     //[SerializeField] private TMP_Text WinningText1;
     //[SerializeField] private TMP_Text WinningText2;
 
@@ -81,9 +82,9 @@ public class HealthManager : NetworkBehaviour
         {
             hc = GameObject.Find("Player1(Clone)").GetComponentInChildren<HealthChange>();
             buttons1 = GameObject.FindGameObjectWithTag("Buttons");
-            Winners1 = GameObject.FindGameObjectWithTag("Winners");
+            //Winners1 = GameObject.FindGameObjectWithTag("Winners");
             Losers1 = GameObject.FindGameObjectWithTag("Losers1");
-            RestartButton1 = GameObject.FindGameObjectWithTag("Restart");
+            //RestartButton1 = GameObject.FindGameObjectWithTag("Restart");
            // WinningText1 = GameObject.FindGameObjectWithTag("Text").GetComponent<TMP_Text>();
         }
 
@@ -101,13 +102,18 @@ public class HealthManager : NetworkBehaviour
         {
             buttons1.transform.position = new Vector3(-2000, -2000, 0);
             buttons2.transform.position = new Vector3(-2000, -2000, 0);
-            RestartButton1.transform.position = new Vector3(700, 350, 0);
-            RestartButton2.transform.position = new Vector3(700, 350, 0);
+            //RestartButton1.transform.position = player1.transform.position;
+            //RestartButton2.transform.position = new Vector3(700, 350, 0);
+            hc.ActivateRestart1();
+            hc2.ActivateRestart2();
 
             if (player1Health <= 0)
             {
-                Winners2.transform.position = new Vector3(700,650,0);
-                Losers1.transform.position = new Vector3(700, 650, 0);
+                //Winners2.transform.position = new Vector3(700,650,0);
+                //Losers1.transform.position = new Vector3(700, 650, 0);
+                hc2.ActivateWinners2();
+                
+                hc.ActivateLoser1();
                 print("Player 1 loses");
                 //WinningText1.SetText("You Lose");
                 //WinningText2.SetText("You Win!");
@@ -115,8 +121,11 @@ public class HealthManager : NetworkBehaviour
             }
             if(player2Health <= 0)
             {
-                Winners1.transform.position = new Vector3(700,650,0);
-                Losers2.transform.position = new Vector3(700, 650, 0);
+                //Winners1.transform.position = new Vector3(700,650,0);
+                //Losers2.transform.position = new Vector3(700, 650, 0);
+                hc.ActivateWinners1();
+                
+                hc2.ActivateLoser2();
                 print("Player 2 loses");
                 //WinningText1.SetText("You Win!");
                // WinningText2.SetText("You Lose");
@@ -279,6 +288,7 @@ public class HealthManager : NetworkBehaviour
         player1Ready = false;
         player2Ready = false;
     }
+
 
 
 
