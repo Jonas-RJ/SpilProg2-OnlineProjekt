@@ -16,6 +16,10 @@ TagManager:
   - Losers2
   - ScoreOverview1
   - ScoreOverview2
+  - Input1
+  - Input2
+  - PromptPanel1
+  - PromptPanel2
   layers:
   - Default
   - TransparentFX

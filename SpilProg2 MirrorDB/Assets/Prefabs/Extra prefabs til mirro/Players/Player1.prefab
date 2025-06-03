@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1328905603410416343}
   m_Layer: 6
   m_Name: WinnerPromptPanel
-  m_TagString: Untagged
+  m_TagString: PromptPanel1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -382,7 +382,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 300
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b3eb69de1bc3bfe489a5beaaa1af8be3, type: 2}
   m_sharedMaterial: {fileID: -2390643975181869759, guid: b3eb69de1bc3bfe489a5beaaa1af8be3, type: 2}
@@ -987,7 +987,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4303193818174972181
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1619,7 +1619,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Emil
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d30f4aea0cdbf304383ce97100088cc6, type: 2}
   m_sharedMaterial: {fileID: 4402615364559498836, guid: d30f4aea0cdbf304383ce97100088cc6, type: 2}
@@ -1969,7 +1969,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '#3'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b3eb69de1bc3bfe489a5beaaa1af8be3, type: 2}
   m_sharedMaterial: {fileID: -2390643975181869759, guid: b3eb69de1bc3bfe489a5beaaa1af8be3, type: 2}
@@ -4387,7 +4387,7 @@ GameObject:
   - component: {fileID: 4190851599876104975}
   m_Layer: 6
   m_Name: WinnerInputField
-  m_TagString: Untagged
+  m_TagString: Input1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5081,10 +5081,10 @@ RectTransform:
   - {fileID: 8991264266477232843}
   m_Father: {fileID: 1209420367850162030}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 210.5, y: -15.5}
+  m_SizeDelta: {x: 145, y: 11}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6577543652133572628
 CanvasRenderer:

@@ -5,6 +5,7 @@ using TMPro;
 public class EndOfGameUIManager : MonoBehaviour
 {
     public HighscoreDBManager dbManager;
+    public HealthManager HM;
 
     public GameObject winnerPromptPanel1;
     public GameObject winnerPromptPanel2;
@@ -17,6 +18,20 @@ public class EndOfGameUIManager : MonoBehaviour
     {
         ShowHighscores(); // update the list after match
     }*/
+
+    public void Update()
+    {
+        if (HM.child1.isActiveAndEnabled)
+        {
+            winnerPromptPanel1 = GameObject.FindGameObjectWithTag("PromptPanel1");
+            playerNameInput1 = GameObject.FindGameObjectWithTag("Input1").GetComponent<TMP_InputField>();
+        }
+        if (HM.child2.isActiveAndEnabled)
+        {
+            winnerPromptPanel2 = GameObject.FindGameObjectWithTag("PromtPanel2");
+            playerNameInput2 = GameObject.FindGameObjectWithTag("Input2").GetComponent<TMP_InputField>();
+        }
+    }
 
     // Called when winner submits name
     public void OnSubmitName1()
