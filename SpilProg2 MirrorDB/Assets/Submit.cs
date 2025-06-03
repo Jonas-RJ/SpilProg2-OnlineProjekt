@@ -8,7 +8,17 @@ public class Submit : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        EOG = GameObject.Find("DiceRollerController").GetComponent<EndOfGameUIManager>();
+        EOG = GameObject.Find("EndOfGame UI Manager").GetComponent<EndOfGameUIManager>();
+    }
+
+    public void Submit1()
+    {
+        EOG.OnSubmitName1();
+    }
+
+    public void Submit2()
+    {
+        EOG.OnSubmitName2();
     }
 
     // Update is called once per frame

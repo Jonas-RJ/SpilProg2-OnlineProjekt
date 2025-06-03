@@ -7,7 +7,7 @@ public class GameSimulator : MonoBehaviour
     void Start()
     {
         // Simulate a win
-        uiManager.OnGameOver(true);
+        //uiManager.OnGameOver(true);
 
         // Simulate a loss:
         // uiManager.OnGameOver(false);

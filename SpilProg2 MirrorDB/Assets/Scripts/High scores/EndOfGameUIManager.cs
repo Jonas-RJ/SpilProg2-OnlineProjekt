@@ -6,49 +6,47 @@ public class EndOfGameUIManager : MonoBehaviour
 {
     public HighscoreDBManager dbManager;
 
-    public GameObject winnerPromptPanel;
-    public TMP_InputField playerNameInput;  // Use InputField if not using TMP
-    public GameObject loserMessage;
-    public TextMeshProUGUI highscoreText;   // Use Text if not using TMP
-
-    public GameObject highscorePanel; // This shows highscores on game end or menu
+    public GameObject winnerPromptPanel1;
+    public GameObject winnerPromptPanel2;
+    public TMP_InputField playerNameInput1;
+    public TMP_InputField playerNameInput2;// Use InputField if not using TMP
+    //public TextMeshProUGUI highscoreText;   // Use Text if not using TMP
 
     // Called at game end — pass in true if the player won
-    public void OnGameOver(bool playerWon)
+    /*public void OnGameOver(bool playerWon)
     {
-        highscorePanel.SetActive(true); // always show highscore list
-
-        if (playerWon)
-        {
-            winnerPromptPanel.SetActive(true);
-            loserMessage.SetActive(false);
-        }
-        else
-        {
-            winnerPromptPanel.SetActive(false);
-            loserMessage.SetActive(true);
-        }
-
         ShowHighscores(); // update the list after match
-    }
+    }*/
 
     // Called when winner submits name
-    public void OnSubmitName()
+    public void OnSubmitName1()
     {
-        string name = playerNameInput.text;
+        string name = playerNameInput1.text;
 
         if (!string.IsNullOrEmpty(name))
         {
             name = name.ToUpper();
             
             dbManager.AddOrUpdateWinner(name);
-            winnerPromptPanel.SetActive(false);
-            ShowHighscores();
+            winnerPromptPanel1.SetActive(false); 
+        }
+    }
+
+    public void OnSubmitName2()
+    {
+        string name = playerNameInput2.text;
+
+        if (!string.IsNullOrEmpty(name))
+        {
+            name = name.ToUpper();
+
+            dbManager.AddOrUpdateWinner(name);
+            winnerPromptPanel2.SetActive(false);
         }
     }
 
     // This displays the highscore list
-    public void ShowHighscores()
+    /*public void ShowHighscores()
     {
         var highscores = dbManager.RetrieveHighscores();
 
@@ -61,5 +59,5 @@ public class EndOfGameUIManager : MonoBehaviour
             highscoreText.text += formatted + "\n";
         }
         FindObjectOfType<ScoreDisplayManager>()?.ShowScoreboard();
-    }
+    }*/
 }

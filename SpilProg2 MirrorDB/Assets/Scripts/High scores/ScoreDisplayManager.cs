@@ -11,7 +11,7 @@ public class ScoreDisplayManager : MonoBehaviour
     public GameObject ScoreCon1;
     public GameObject ScoreCon2;
     public RectTransform scoreContainer;      // The parent object (like ScoreOverview)
-        public RectTransform scoreContainer2;      // The parent object (like ScoreOverview)
+    public RectTransform scoreContainer2;      // The parent object (like ScoreOverview)
 
     public GameObject scoreEntryPrefab;       // ScoresIndividual prefab with TMPs
 

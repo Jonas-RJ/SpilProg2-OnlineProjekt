@@ -534,6 +534,7 @@ GameObject:
   - component: {fileID: 7323134106316370970}
   - component: {fileID: 5344329438674494985}
   - component: {fileID: 8675304377956879468}
+  - component: {fileID: 8230311863554595227}
   m_Layer: 6
   m_Name: SubmitButton
   m_TagString: Untagged
@@ -643,9 +644,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameOverUIManager, Assembly-CSharp
-        m_MethodName: OnSubmitName
+      - m_Target: {fileID: 8230311863554595227}
+        m_TargetAssemblyTypeName: Submit, Assembly-CSharp
+        m_MethodName: Submit2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -655,6 +656,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8230311863554595227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1763836293891941206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4b6aa795a42ff54793a305fedfc048f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EOG: {fileID: 0}
 --- !u!1 &1905821052048730740
 GameObject:
   m_ObjectHideFlags: 0
@@ -985,7 +999,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 376, y: 256}
+  m_AnchoredPosition: {x: 376, y: 247.2}
   m_SizeDelta: {x: 800, y: 471.95358}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &856605421428345396
@@ -2353,6 +2367,10 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 1990978957253665622, guid: a228822b0ebc6de47bf63757f5c15cab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2293019392886823109, guid: a228822b0ebc6de47bf63757f5c15cab, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2367,6 +2385,10 @@ PrefabInstance:
       objectReference: {fileID: 4402615364559498836, guid: d30f4aea0cdbf304383ce97100088cc6, type: 2}
     - target: {fileID: 3064397845108638464, guid: a228822b0ebc6de47bf63757f5c15cab, type: 3}
       propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4228693311634075397, guid: a228822b0ebc6de47bf63757f5c15cab, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5109316127624971196, guid: a228822b0ebc6de47bf63757f5c15cab, type: 3}
@@ -2479,6 +2501,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8513281726488628427, guid: a228822b0ebc6de47bf63757f5c15cab, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8618697775248952390, guid: a228822b0ebc6de47bf63757f5c15cab, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9186318754460753599, guid: a228822b0ebc6de47bf63757f5c15cab, type: 3}
