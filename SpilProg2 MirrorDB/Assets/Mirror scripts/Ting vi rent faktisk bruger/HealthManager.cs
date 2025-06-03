@@ -164,7 +164,7 @@ public class HealthManager : NetworkBehaviour
             //trækker skaden fra ens healthpool. 
             player2Health -= diceDamage;
             Debug.Log("player 2 took: " + diceDamage + " damage");
-            hc.Change1();
+            hc2.Change2();
         }
 
         if (diceRoll1 < diceRoll2)
@@ -172,7 +172,7 @@ public class HealthManager : NetworkBehaviour
             diceDamage = DR.diceRollNumber2 - DR.diceRollNumber;
             player1Health -= diceDamage;
             Debug.Log("player 1 took: " + diceDamage + " damage");
-            hc2.Change2();
+            hc.Change1();
         }
 
         if (diceRoll1 == diceRoll2)
